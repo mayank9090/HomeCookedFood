@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Cooked Food | Premium Tiffin Cuttack</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #c5a059;
+            --black: #121212;
+            --off-white: #faf8f5;
+            --success: #2e7d32;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: #2c3e50; line-height: 1.6; }
+        
+        .live-status { background: #e8f5e9; color: var(--success); font-size: 11px; font-weight: 700; text-align: center; padding: 6px 0; text-transform: uppercase; letter-spacing: 1px; }
+        .dot { height: 8px; width: 8px; background-color: var(--success); border-radius: 50%; display: inline-block; margin-right: 5px; animation: blink 1.5s infinite; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+        
+        .promo-bar { background: var(--black); color: var(--gold); padding: 10px 0; text-align: center; font-weight: 700; font-size: 12px; position: sticky; top: 0; z-index: 999; border-bottom: 1px solid #333; }
+
+        .header { background: #000; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: sticky; top: 32px; z-index: 998; }
+        .header .logo { font-family: 'Playfair Display'; font-size: 20px; color: var(--gold); }
+        .header .call-btn { color: var(--gold); border: 1.5px solid var(--gold); padding: 6px 15px; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 14px; }
+
+        .hero { padding: 40px 15px; text-align: center; }
+        .hero h1 { font-family: 'Playfair Display'; font-size: 36px; margin-bottom: 10px; color: var(--black); }
+        .hero .trial-box { background: var(--black); color: #fff; padding: 30px; border-radius: 20px; display: inline-block; margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .hero .price { font-size: 40px; font-weight: 800; color: var(--gold); }
+        .order-btn { display: inline-block; padding: 12px 35px; margin-top: 15px; background: var(--gold); color: #fff; border-radius: 50px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: 0.3s; }
+
+        .trust-bar { display: flex; justify-content: space-around; padding: 25px 10px; background: #fff; margin: 30px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+        .trust-item { text-align: center; flex: 1; }
+        .trust-item span { font-size: 24px; display: block; margin-bottom: 5px; }
+        .trust-item p { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #7f8c8d; }
+
+        .tab-container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+        .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
+        .tabs button { padding: 10px 15px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; background: #e0e0e0; font-size: 13px; transition: 0.3s; }
+        .tabs button.active { background: var(--gold); color: #fff; }
+        .plan-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
+        .plan-price { font-size: 34px; font-weight: 800; margin: 10px 0; color: var(--black); }
+        .plan-price span { font-size: 16px; font-weight: 400; color: #7f8c8d; }
+
+        h2.section-title { font-family: 'Playfair Display'; font-size: 28px; text-align: center; margin: 40px 0 20px; }
+        
+        .modern-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 0 20px; max-width: 1000px; margin: 0 auto; }
+        .menu-card { background: #fff; border-radius: 15px; padding: 20px; position: relative; border-left: 6px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.03); overflow: hidden; }
+        .day-tag { font-weight: 800; color: var(--gold); text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
+        .meal-row { font-size: 14px; margin-bottom: 4px; color: #444; }
+        .special-nonveg { border-left-color: #e74c3c; }
+        .type-badge { position: absolute; top: 10px; right: -20px; background: #e74c3c; color: #fff; font-size: 9px; padding: 2px 25px; transform: rotate(45deg); font-weight: 700; }
+
+        .reviews-container { display: flex; overflow-x: auto; gap: 15px; padding: 20px; max-width: 1000px; margin: 0 auto; scrollbar-width: none; }
+        .reviews-container::-webkit-scrollbar { display: none; }
+        .review-card { background: #fff; min-width: 280px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .stars { color: #f1c40f; margin-bottom: 10px; font-size: 14px; }
+        .review-card p { font-size: 13px; font-style: italic; color: #555; margin-bottom: 10px; }
+        .reviewer { font-weight: 700; font-size: 12px; color: var(--black); text-align: right; }
+
+        .referral-box { background: linear-gradient(135deg, var(--black), #2c3e50); color: #fff; margin: 40px 20px; padding: 35px; border-radius: 20px; text-align: center; border: 1px solid var(--gold); }
+        .referral-box h3 { color: var(--gold); font-family: 'Playfair Display'; margin-bottom: 10px; font-size: 24px; }
+        
+        .faq-container { max-width: 900px; margin: 0 auto 50px; padding: 0 20px; }
+        .faq-item { background: #fff; margin-bottom: 12px; padding: 20px; border-radius: 15px; border-left: 3px solid #eee; }
+        .faq-item h4 { font-size: 15px; margin-bottom: 5px; color: var(--black); }
+
+        #orderPopup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000; }
+        .popup-box { background:#fff; max-width:350px; margin:80px auto; padding:25px; border-radius:20px; text-align:center; position:relative; }
+        .popup-box input, .popup-box textarea { width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:10px; font-family: inherit; }
+        .confirm { background:var(--gold); color:#fff; width:100%; padding:12px; border:none; border-radius:50px; font-weight:700; margin-top:10px; cursor:pointer; }
+        .cancel { color:#888; background:none; border:none; margin-top:15px; cursor:pointer; font-size:13px; text-decoration:underline; }
+
+        footer { background: var(--black); color: white; padding: 50px 20px; text-align: center; }
+        .map-btn { color: var(--gold); text-decoration: none; font-weight: 600; border: 1.5px solid var(--gold); padding: 10px 25px; border-radius: 5px; display: inline-block; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<div class="live-status"><span class="dot"></span> Taking Orders for Tomorrow</div>
+<div class="promo-bar">🛑 MON-SAT SERVICE | 🌿 HYGIENIC HOME TASTE | 🚚 FREE DELIVERY CUTTACK</div>
+
+<header class="header">
+    <div class="logo">Home Cooked Food</div>
+    <a href="tel:+918895611759" class="call-btn">📞 Call Now</a>
+</header>
+
+<section class="hero">
+    <h1>Swaad Jo Dil Jeet Le!</h1>
+    <p>Premium home-cooked meals delivered in Tulsipur.</p>
+    <div class="trial-box">
+        <p style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--gold);">Book a</p>
+        <span class="price">₹130</span><br>
+        <button class="order-btn" id="trialOrderBtn">Order Trial Meal</button>
+    </div>
+</section>
+
+<section class="trust-bar">
+    <div class="trust-item"><span>🌿</span><p>Fresh Veggies</p></div>
+    <div class="trust-item"><span>💧</span><p>RO Water</p></div>
+    <div class="trust-item"><span>🥘</span><p>Less Oil</p></div>
+    <div class="trust-item"><span>🧼</span><p>Hygienic</p></div>
+</section>
+
+<h2 class="section-title">Monthly Plans (26 Days)</h2>
+<div class="tab-container">
+    <div class="tabs">
+        <button class="tab-btn active" data-tab="veg">Veg</button>
+        <button class="tab-btn" data-tab="mix">Veg & Non-Veg</button>
+        <button class="tab-btn" data-tab="nonveg">Non-Veg Only</button>
+    </div>
+
+    <div class="plan-grid" id="veg">
+        <div class="plan-card">
+            <h3>Veg Thali (Day & Night)</h3>
+            <div class="plan-price">₹3500 <span>/ 26 Days</span></div>
+            <p style="font-size:13px; color:#2c3e50; font-weight:600; margin-bottom:15px;">6 Days a Week • Sundays Closed</p>
+            <button class="order-btn plan-order-btn" data-name="Veg Thali (26 Days)" data-price="3500">Order Now</button>
+        </div>
+    </div>
+
+    <div class="plan-grid" id="mix" style="display:none;">
+        <div class="plan-card">
+            <h3>Veg & Non-Veg Mix</h3>
+            <div class="plan-price">₹4500 <span>/ 26 Days</span></div>
+            <p style="font-size:13px; color:#2c3e50; font-weight:600; margin-bottom:15px;">Includes Wed & Fri Prawns/Chicken</p>
+            <button class="order-btn plan-order-btn" data-name="Mix Thali (26 Days)" data-price="4500">Order Now</button>
+        </div>
+    </div>
+
+    <div class="plan-grid" id="nonveg" style="display:none;">
+        <div class="plan-card">
+            <h3>Non-Veg Thali</h3>
+            <div class="plan-price">₹5500 <span>/ 26 Days</span></div>
+            <p style="font-size:13px; color:#2c3e50; font-weight:600; margin-bottom:15px;">Daily Prawns/Chicken/Fish/Egg</p>
+            <button class="order-btn plan-order-btn" data-name="Non-Veg Thali (26 Days)" data-price="5500">Order Now</button>
+        </div>
+    </div>
+</div>
+
+<h2 class="section-title">Weekly Menu Highlights</h2>
+<div class="modern-menu">
+    <div class="menu-card"><div class="day-tag">Monday</div><div class="meal-row"><strong>L:</strong> Authentic Dalma, Rice, Veg Fry</div><div class="meal-row"><strong>D:</strong> Tadka Dal, Jeera Aloo, 4 Roti</div></div>
+    <div class="menu-card"><div class="day-tag">Tuesday</div><div class="meal-row"><strong>L:</strong> Yellow Dal, Bhindi Bhaja, Rice</div><div class="meal-row"><strong>D:</strong> Shahi Paneer, Mix Veg, 4 Roti</div></div>
+    <div class="menu-card special-nonveg"><div class="day-tag">Wednesday</div><div class="meal-row"><strong>L:</strong> Prawn Masala / Fish Curry, Rice</div><div class="meal-row"><strong>D:</strong> Egg Tadka, Bharta, 4 Roti</div><span class="type-badge">Non-Veg</span></div>
+    <div class="menu-card"><div class="day-tag">Thursday</div><div class="meal-row"><strong>L:</strong> Veg Besara, Saga Muga, Rice</div><div class="meal-row"><strong>D:</strong> Gobi Masala / Aloo Posto, 4 Roti</div></div>
+    <div class="menu-card special-nonveg"><div class="day-tag">Friday</div><div class="meal-row"><strong>L:</strong> Desi Chicken / Prawn Curry, Rice</div><div class="meal-row"><strong>D:</strong> Omelette Curry, Dal, 4 Roti</div><span class="type-badge">Non-Veg</span></div>
+    <div class="menu-card"><div class="day-tag">Saturday</div><div class="meal-row"><strong>L:</strong> Masala Khichdi, Baigana Bhaja</div><div class="meal-row"><strong>D:</strong> Green Peas Masala, Dal, 4 Roti</div></div>
+</div>
+
+<h2 class="section-title">Customer Reviews</h2>
+<div class="reviews-container">
+    <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Tulsipur mein sabse accha ghar jaisa khana. Dalma aur Prawns ka taste bilkul home-made hai!"</p>
+        <div class="reviewer">- Rajesh Mohanty</div>
+    </div>
+    <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Office ke liye best service. Packaging hygienic hai aur delivery hamesha time par hoti hai."</p>
+        <div class="reviewer">- Smita Dash</div>
+    </div>
+    <div class="review-card">
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>"Authentic Odia taste. Pricing bhi 26 days ke hisab se bahut sahi hai. Highly recommended!"</p>
+        <div class="reviewer">- Ankit Sahoo</div>
+    </div>
+</div>
+<div style="text-align: center; margin-bottom: 40px;">
+    <a href="https://maps.app.goo.gl/N1HNJaMdtbkgMShw6?g_st=aw" target="_blank" style="color: var(--gold); font-size: 13px; text-decoration: underline; font-weight: 600;">View All Google Reviews</a>
+</div>
+
+<section class="referral-box">
+    <h3>🎉 Refer a Friend & Save!</h3>
+    <p>Refer a friend to a monthly plan and get <strong>₹200 OFF</strong> on your next month.</p>
+    <a href="https://wa.me/message/SRYZ2V6YYVM6B1" class="order-btn" style="text-decoration:none; background:var(--gold); margin-top:0;">Invite via WhatsApp</a>
+</section>
+
+<h2 class="section-title">Common Questions</h2>
+<div class="faq-container">
+    <div class="faq-item"><h4>🕒 Delivery Timings?</h4><p>Lunch: 12:30 PM - 1:30 PM | Dinner: 8:00 PM - 9:15 PM.</p></div>
+    <div class="faq-item"><h4>📅 Why 26 Days?</h4><p>We operate Mon-Sat. Sundays are off, so the monthly plan covers 26 service days.</p></div>
+    <div class="faq-item"><h4>🦐 Non-Veg Options?</h4><p>We serve fresh Prawns (Chingudi), Chicken, Fish, and Egg based on the day.</p></div>
+</div>
+
+<div id="orderPopup">
+    <div class="popup-box">
+        <h3 id="popupPlanName" style="font-family:'Playfair Display'; margin-bottom:15px;">Order Form</h3>
+        <input type="text" id="custName" placeholder="Your Full Name">
+        <input type="text" id="custPhone" placeholder="Mobile Number">
+        <textarea id="custAddress" placeholder="Full Delivery Address" rows="3"></textarea>
+        <button class="confirm" id="confirmPlanOrder">Order via WhatsApp</button>
+        <button class="cancel" onclick="closeOrderPopup()">Go Back</button>
+    </div>
+</div>
+
+<footer>
+    <div style="font-size:13px; line-height:2; margin-bottom:20px;">
+        📍 Near Collector Residence, Tulsipur, Cuttack<br>
+        📞 +91 8895611759<br>
+        🚚 Mon-Sat (Sunday Closed)
+    </div>
+    <a href="https://maps.app.goo.gl/N1HNJaMdtbkgMShw6?g_st=aw" target="_blank" class="map-btn">📍 View on Google Maps</a>
+</footer>
+
+<script>
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const planGrids = document.querySelectorAll('.plan-grid');
+
+    tabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            tabButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            planGrids.forEach(grid => {
+                grid.style.display = (grid.id === btn.dataset.tab) ? 'grid' : 'none';
+            });
+        });
+    });
+
+    let currentPlanName = "";
+    let currentPlanPrice = 0;
+    const popup = document.getElementById("orderPopup");
+
+    document.querySelectorAll('.plan-order-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            openPopup(btn.dataset.name, btn.dataset.price);
+        });
+    });
+
+    document.getElementById("trialOrderBtn").addEventListener('click', () => {
+        openPopup("Trial Meal", "130");
+    });
+
+    function openPopup(name, price) {
+        currentPlanName = name;
+        currentPlanPrice = price;
+        document.getElementById("popupPlanName").innerText = name + " - ₹" + price;
+        popup.style.display = "block";
+    }
+
+    function closeOrderPopup() { popup.style.display = "none"; }
+
+    document.getElementById("confirmPlanOrder").addEventListener('click', () => {
+        const name = document.getElementById("custName").value.trim();
+        const phone = document.getElementById("custPhone").value.trim();
+        const addr = document.getElementById("custAddress").value.trim();
+        
+        if(!name || !phone || !addr) { alert("Please fill all details"); return; }
+
+        // Updated to use Business Link with Pre-filled text
+        const baseUrl = "https://wa.me/message/SRYZ2V6YYVM6B1";
+        const message = `?text=*NEW ORDER*%0A*Name:* ${name}%0A*Order:* ${currentPlanName}%0A*Price:* ₹${currentPlanPrice}%0A*Address:* ${addr}%0A*Contact:* ${phone}`;
+        
+        window.open(baseUrl + message, "_blank");
+        closeOrderPopup();
+    });
+</script>
+
+</body>
+</html>
