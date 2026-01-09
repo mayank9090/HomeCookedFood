@@ -17,21 +17,38 @@
         html { scroll-behavior: smooth; }
         body { font-family: 'Poppins', sans-serif; background: var(--off-white); color: #2c3e50; line-height: 1.6; }
         
-        .live-status { background: #e8f5e9; color: var(--success); font-size: 11px; font-weight: 700; text-align: center; padding: 6px 0; text-transform: uppercase; letter-spacing: 1px; }
+        /* Status Bar */
+        .live-status { background: #e8f5e9; color: var(--success); font-size: 11px; font-weight: 700; text-align: center; padding: 8px 0; text-transform: uppercase; letter-spacing: 1px; }
         .dot { height: 8px; width: 8px; background-color: var(--success); border-radius: 50%; display: inline-block; margin-right: 5px; animation: blink 1.5s infinite; }
         @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
         
-        .promo-bar { background: var(--black); color: var(--gold); padding: 10px 0; text-align: center; font-weight: 700; font-size: 12px; position: sticky; top: 0; z-index: 999; border-bottom: 1px solid #333; }
+        /* Scrolling Promo Bar */
+        .promo-bar { background: var(--black); color: var(--gold); padding: 8px 0; font-weight: 700; font-size: 12px; position: sticky; top: 0; z-index: 999; border-bottom: 1px solid #333; overflow: hidden; }
+        .ticker-wrapper { display: flex; white-space: nowrap; animation: ticker 25s linear infinite; }
+        .ticker-item { padding: 0 40px; display: flex; align-items: center; }
+        @keyframes ticker { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
 
-        .header { background: #000; display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; position: sticky; top: 32px; z-index: 998; }
-        .header .logo { font-family: 'Playfair Display'; font-size: 20px; color: var(--gold); }
-        .header .call-btn { color: var(--gold); border: 1.5px solid var(--gold); padding: 6px 15px; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 14px; }
+        /* Header */
+        .header { background: #000; display: flex; justify-content: space-between; align-items: center; padding: 10px 15px; position: sticky; top: 32px; z-index: 998; border-bottom: 1px solid var(--gold); }
+        .brand-box { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .header .logo-img { height: 45px; width: auto; display: block; border-radius: 4px; }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-name { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 17px; font-weight: 700; line-height: 1.2; }
+        .brand-subtext { color: #fff; font-size: 9px; letter-spacing: 1px; text-transform: uppercase; }
+        .header .call-btn { color: var(--gold); border: 1.5px solid var(--gold); padding: 6px 15px; border-radius: 50px; font-weight: 600; text-decoration: none; font-size: 13px; }
 
         .hero { padding: 40px 15px; text-align: center; }
-        .hero h1 { font-family: 'Playfair Display'; font-size: 36px; margin-bottom: 10px; color: var(--black); }
+        .hero h1 { font-family: 'Playfair Display'; font-size: 34px; margin-bottom: 10px; color: var(--black); }
         .hero .trial-box { background: var(--black); color: #fff; padding: 30px; border-radius: 20px; display: inline-block; margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
         .hero .price { font-size: 40px; font-weight: 800; color: var(--gold); }
-        .order-btn { display: inline-block; padding: 12px 35px; margin-top: 15px; background: var(--gold); color: #fff; border-radius: 50px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: 0.3s; }
+
+        .order-btn { 
+            display: inline-block; padding: 12px 35px; margin-top: 15px; 
+            background: var(--gold); color: #fff; border-radius: 50px; font-weight: 600; 
+            text-decoration: none; border: none; cursor: pointer; transition: 0.3s;
+            animation: pulse-animation 2s infinite; 
+        }
+        @keyframes pulse-animation { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
         .trust-bar { display: flex; justify-content: space-around; padding: 25px 10px; background: #fff; margin: 30px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
         .trust-item { text-align: center; flex: 1; }
@@ -40,60 +57,109 @@
 
         .tab-container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
         .tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 25px; }
-        .tabs button { padding: 10px 15px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; background: #e0e0e0; font-size: 13px; transition: 0.3s; }
+        .tabs button { padding: 10px 15px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; background: #e0e0e0; font-size: 13px; }
         .tabs button.active { background: var(--gold); color: #fff; }
         .plan-card { background: #fff; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); text-align: center; border: 1px solid #eee; }
         .plan-price { font-size: 34px; font-weight: 800; margin: 10px 0; color: var(--black); }
-        .plan-price span { font-size: 16px; font-weight: 400; color: #7f8c8d; }
 
         h2.section-title { font-family: 'Playfair Display'; font-size: 28px; text-align: center; margin: 40px 0 20px; }
-        
         .modern-menu { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; padding: 0 20px; max-width: 1000px; margin: 0 auto; }
         .menu-card { background: #fff; border-radius: 15px; padding: 20px; position: relative; border-left: 6px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.03); overflow: hidden; }
         .day-tag { font-weight: 800; color: var(--gold); text-transform: uppercase; font-size: 13px; margin-bottom: 8px; }
         .meal-row { font-size: 14px; margin-bottom: 4px; color: #444; }
-        .special-nonveg { border-left-color: #e74c3c; }
         .type-badge { position: absolute; top: 10px; right: -20px; background: #e74c3c; color: #fff; font-size: 9px; padding: 2px 25px; transform: rotate(45deg); font-weight: 700; }
 
-        .reviews-container { display: flex; overflow-x: auto; gap: 15px; padding: 20px; max-width: 1000px; margin: 0 auto; scrollbar-width: none; }
-        .reviews-container::-webkit-scrollbar { display: none; }
-        .review-card { background: #fff; min-width: 280px; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; padding: 20px; max-width: 1000px; margin: 0 auto; }
+        .review-card { background: #fff; padding: 25px; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); border: 1px solid #f0f0f0; }
         .stars { color: #f1c40f; margin-bottom: 10px; font-size: 14px; }
-        .review-card p { font-size: 13px; font-style: italic; color: #555; margin-bottom: 10px; }
-        .reviewer { font-weight: 700; font-size: 12px; color: var(--black); text-align: right; }
+        .reviewer-info { display: flex; align-items: center; margin-top: 15px; }
+        .reviewer-avatar { width: 40px; height: 40px; background: var(--gold); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; margin-right: 12px; }
+        .reviewer-name { font-weight: 700; font-size: 14px; color: var(--black); }
 
+        /* Referral Box Updated */
         .referral-box { background: linear-gradient(135deg, var(--black), #2c3e50); color: #fff; margin: 40px 20px; padding: 35px; border-radius: 20px; text-align: center; border: 1px solid var(--gold); }
-        .referral-box h3 { color: var(--gold); font-family: 'Playfair Display'; margin-bottom: 10px; font-size: 24px; }
+        .referral-input-container { margin-top: 20px; display: flex; flex-direction: column; gap: 10px; max-width: 300px; margin-left: auto; margin-right: auto; }
+        .referral-box input { padding: 12px; border-radius: 10px; border: none; font-family: 'Poppins'; text-align: center; }
+
+        .faq-section { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .faq-item { background: #fff; margin-bottom: 10px; border-radius: 10px; border: 1px solid #eee; overflow: hidden; cursor: pointer; }
+        .faq-question { padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; font-weight: 600; color: var(--black); }
+        .faq-answer { padding: 0 20px; max-height: 0; overflow: hidden; transition: 0.3s ease-out; color: #666; font-size: 14px; }
+        .faq-item.active .faq-answer { padding: 15px 20px; max-height: 200px; border-top: 1px solid #f9f9f9; }
+
+        /* Premium Order Popup */
+        #orderPopup { 
+            display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+            background:rgba(0,0,0,0.85); z-index:1001; backdrop-filter: blur(5px);
+            align-items: center; justify-content: center;
+        }
+        .popup-box { 
+            background:#fff; width:90%; max-width:400px; border-radius:24px; 
+            overflow:hidden; position:relative; animation: slideUp 0.4s ease;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+        @keyframes slideUp { from { transform: translateY(50px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
         
-        .faq-container { max-width: 900px; margin: 0 auto 50px; padding: 0 20px; }
-        .faq-item { background: #fff; margin-bottom: 12px; padding: 20px; border-radius: 15px; border-left: 3px solid #eee; }
-        .faq-item h4 { font-size: 15px; margin-bottom: 5px; color: var(--black); }
+        .popup-header { background: var(--black); color: #fff; padding: 25px; text-align: center; border-bottom: 3px solid var(--gold); }
+        .popup-header h3 { font-family: 'Playfair Display'; font-size: 22px; color: var(--gold); margin-bottom: 5px; }
+        .popup-header p { font-size: 12px; opacity: 0.8; letter-spacing: 1px; }
 
-        #orderPopup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:1000; }
-        .popup-box { background:#fff; max-width:350px; margin:80px auto; padding:25px; border-radius:20px; text-align:center; position:relative; }
-        .popup-box input, .popup-box textarea { width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:10px; font-family: inherit; }
-        .confirm { background:var(--gold); color:#fff; width:100%; padding:12px; border:none; border-radius:50px; font-weight:700; margin-top:10px; cursor:pointer; }
-        .cancel { color:#888; background:none; border:none; margin-top:15px; cursor:pointer; font-size:13px; text-decoration:underline; }
+        .popup-body { padding: 25px; max-height: 60vh; overflow-y: auto; }
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; color: #7f8c8d; margin-bottom: 5px; margin-left: 5px; }
+        .popup-box input, .popup-box textarea { 
+            width:100%; padding:14px; border:1px solid #e0e0e0; border-radius:12px; 
+            font-family: 'Poppins'; font-size: 14px; background: #f9f9f9; transition: 0.3s;
+        }
+        .popup-box input:focus, .popup-box textarea:focus { border-color: var(--gold); background: #fff; outline: none; box-shadow: 0 0 0 4px rgba(197, 160, 89, 0.1); }
 
-        footer { background: var(--black); color: white; padding: 50px 20px; text-align: center; }
+        .popup-footer { padding: 0 25px 25px; }
+        .confirm-btn { 
+            width: 100%; background: var(--success); color: #fff; border: none; padding: 16px; 
+            border-radius: 12px; font-weight: 700; font-size: 15px; cursor: pointer; 
+            display: flex; align-items: center; justify-content: center; gap: 10px; transition: 0.3s;
+        }
+        .confirm-btn:hover { background: #1b5e20; transform: translateY(-2px); }
+        .cancel-link { display: block; text-align: center; margin-top: 15px; color: #7f8c8d; text-decoration: none; font-size: 13px; font-weight: 600; }
+
+        footer { background: var(--black); color: white; padding: 50px 20px; text-align: center; border-top: 3px solid var(--gold); }
+        .footer-logo { height: 50px; width: auto; margin-bottom: 10px; border-radius: 5px; }
+        .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 20px; font-weight: 700; margin-bottom: 5px; }
+        .footer-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.7; margin-bottom: 20px; }
         .map-btn { color: var(--gold); text-decoration: none; font-weight: 600; border: 1.5px solid var(--gold); padding: 10px 25px; border-radius: 5px; display: inline-block; margin-top: 15px; }
+
+        @media (max-width: 450px) { .brand-name { font-size: 16px; } .header .logo-img { height: 42px; } }
     </style>
 </head>
 <body>
 
-<div class="live-status"><span class="dot"></span> Taking Orders for Tomorrow</div>
-<div class="promo-bar">🛑 MON-SAT SERVICE | 🌿 HYGIENIC HOME TASTE | 🚚 FREE DELIVERY CUTTACK</div>
+<div class="live-status"><span class="dot"></span> Now we are ready to take orders</div>
+
+<div class="promo-bar">
+    <div class="ticker-wrapper">
+        <div class="ticker-item">🚚 FREE DELIVERY ONLY IN CUTTACK CITY</div>
+        <div class="ticker-item">🌿 HYGIENIC & FRESH HOME COOKED MEALS</div>
+        <div class="ticker-item">🛑 CLOSED ON SUNDAYS</div>
+        <div class="ticker-item">🎁 REFER A FRIEND & GET ₹200 OFF</div>
+    </div>
+</div>
 
 <header class="header">
-    <div class="logo">Home Cooked Food</div>
+    <a href="#" class="brand-box">
+        <img src="https://i.ibb.co/k6JBsXLs/logo.png" alt="Logo" class="logo-img">
+        <div class="brand-text">
+            <span class="brand-name">Home Cooked Food</span>
+            <span class="brand-subtext">Premium Tiffin Cuttack</span>
+        </div>
+    </a>
     <a href="tel:+918895611759" class="call-btn">📞 Call Now</a>
 </header>
 
 <section class="hero">
     <h1>Swaad Jo Dil Jeet Le!</h1>
-    <p>Premium home-cooked meals delivered in Tulsipur.</p>
+    <p>Premium home-cooked meals delivered in **Cuttack City**.</p>
     <div class="trial-box">
-        <p style="font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--gold);">Book a</p>
+        <p style="font-size:11px; text-transform:uppercase; color:var(--gold);">Cuttack Special Trial</p>
         <span class="price">₹130</span><br>
         <button class="order-btn" id="trialOrderBtn">Order Trial Meal</button>
     </div>
@@ -113,104 +179,113 @@
         <button class="tab-btn" data-tab="mix">Veg & Non-Veg</button>
         <button class="tab-btn" data-tab="nonveg">Non-Veg Only</button>
     </div>
-
-    <div class="plan-grid" id="veg">
-        <div class="plan-card">
-            <h3>Veg Thali (Day & Night)</h3>
-            <div class="plan-price">₹3500 <span>/ 26 Days</span></div>
-            <p style="font-size:13px; color:#2c3e50; font-weight:600; margin-bottom:15px;">6 Days a Week • Sundays Closed</p>
-            <button class="order-btn plan-order-btn" data-name="Veg Thali (26 Days)" data-price="3500">Order Now</button>
-        </div>
-    </div>
-
-    <div class="plan-grid" id="mix" style="display:none;">
-        <div class="plan-card">
-            <h3>Veg & Non-Veg Mix</h3>
-            <div class="plan-price">₹4500 <span>/ 26 Days</span></div>
-            <p style="font-size:13px; color:#2c3e50; font-weight:600; margin-bottom:15px;">Includes Wed & Fri Prawns/Chicken</p>
-            <button class="order-btn plan-order-btn" data-name="Mix Thali (26 Days)" data-price="4500">Order Now</button>
-        </div>
-    </div>
-
-    <div class="plan-grid" id="nonveg" style="display:none;">
-        <div class="plan-card">
-            <h3>Non-Veg Thali</h3>
-            <div class="plan-price">₹5500 <span>/ 26 Days</span></div>
-            <p style="font-size:13px; color:#2c3e50; font-weight:600; margin-bottom:15px;">Daily Prawns/Chicken/Fish/Egg</p>
-            <button class="order-btn plan-order-btn" data-name="Non-Veg Thali (26 Days)" data-price="5500">Order Now</button>
-        </div>
-    </div>
+    <div class="plan-grid" id="veg"><div class="plan-card"><h3>Veg Thali</h3><div class="plan-price">₹3500 <span>/ Month</span></div><button class="order-btn plan-order-btn" data-name="Veg Thali" data-price="3500">Order Now</button></div></div>
+    <div class="plan-grid" id="mix" style="display:none;"><div class="plan-card"><h3>Veg & Non-Veg Mix</h3><div class="plan-price">₹4500 <span>/ Month</span></div><button class="order-btn plan-order-btn" data-name="Mix Thali" data-price="4500">Order Now</button></div></div>
+    <div class="plan-grid" id="nonveg" style="display:none;"><div class="plan-card"><h3>Non-Veg Thali</h3><div class="plan-price">₹5500 <span>/ Month</span></div><button class="order-btn plan-order-btn" data-name="Non-Veg Thali" data-price="5500">Order Now</button></div></div>
 </div>
 
 <h2 class="section-title">Weekly Menu Highlights</h2>
 <div class="modern-menu">
     <div class="menu-card"><div class="day-tag">Monday</div><div class="meal-row"><strong>L:</strong> Authentic Dalma, Rice, Veg Fry</div><div class="meal-row"><strong>D:</strong> Tadka Dal, Jeera Aloo, 4 Roti</div></div>
     <div class="menu-card"><div class="day-tag">Tuesday</div><div class="meal-row"><strong>L:</strong> Yellow Dal, Bhindi Bhaja, Rice</div><div class="meal-row"><strong>D:</strong> Shahi Paneer, Mix Veg, 4 Roti</div></div>
-    <div class="menu-card special-nonveg"><div class="day-tag">Wednesday</div><div class="meal-row"><strong>L:</strong> Prawn Masala / Fish Curry, Rice</div><div class="meal-row"><strong>D:</strong> Egg Tadka, Bharta, 4 Roti</div><span class="type-badge">Non-Veg</span></div>
+    <div class="menu-card"><div class="day-tag">Wednesday</div><div class="meal-row"><strong>L:</strong> Prawn / Fish Curry, Rice</div><div class="meal-row"><strong>D:</strong> Egg Tadka, Bharta, 4 Roti</div><span class="type-badge">Non-Veg</span></div>
     <div class="menu-card"><div class="day-tag">Thursday</div><div class="meal-row"><strong>L:</strong> Veg Besara, Saga Muga, Rice</div><div class="meal-row"><strong>D:</strong> Gobi Masala / Aloo Posto, 4 Roti</div></div>
-    <div class="menu-card special-nonveg"><div class="day-tag">Friday</div><div class="meal-row"><strong>L:</strong> Desi Chicken / Prawn Curry, Rice</div><div class="meal-row"><strong>D:</strong> Omelette Curry, Dal, 4 Roti</div><span class="type-badge">Non-Veg</span></div>
+    <div class="menu-card"><div class="day-tag">Friday</div><div class="meal-row"><strong>L:</strong> Chicken / Prawn Curry, Rice</div><div class="meal-row"><strong>D:</strong> Omelette Curry, Dal, 4 Roti</div><span class="type-badge">Non-Veg</span></div>
     <div class="menu-card"><div class="day-tag">Saturday</div><div class="meal-row"><strong>L:</strong> Masala Khichdi, Baigana Bhaja</div><div class="meal-row"><strong>D:</strong> Green Peas Masala, Dal, 4 Roti</div></div>
 </div>
 
 <h2 class="section-title">Customer Reviews</h2>
-<div class="reviews-container">
-    <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"Tulsipur mein sabse accha ghar jaisa khana. Dalma aur Prawns ka taste bilkul home-made hai!"</p>
-        <div class="reviewer">- Rajesh Mohanty</div>
-    </div>
-    <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"Office ke liye best service. Packaging hygienic hai aur delivery hamesha time par hoti hai."</p>
-        <div class="reviewer">- Smita Dash</div>
-    </div>
-    <div class="review-card">
-        <div class="stars">⭐⭐⭐⭐⭐</div>
-        <p>"Authentic Odia taste. Pricing bhi 26 days ke hisab se bahut sahi hai. Highly recommended!"</p>
-        <div class="reviewer">- Ankit Sahoo</div>
-    </div>
-</div>
-<div style="text-align: center; margin-bottom: 40px;">
-    <a href="https://maps.app.goo.gl/N1HNJaMdtbkgMShw6?g_st=aw" target="_blank" style="color: var(--gold); font-size: 13px; text-decoration: underline; font-weight: 600;">View All Google Reviews</a>
+<div class="reviews-grid">
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Cuttack mein sabse accha ghar jaisa khana. Dalma bahut hi swadisht hai!"</p><div class="reviewer-info"><div class="reviewer-avatar">RM</div><div class="reviewer-name">Rajesh Mohanty</div></div></div>
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Packaging hygienic hai aur delivery Cuttack mein hamesha time par hoti hai."</p><div class="reviewer-info"><div class="reviewer-avatar">SD</div><div class="reviewer-name">Smita Dash</div></div></div>
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Office ke liye perfect hai. Garam aur fresh khana milta hai roz."</p><div class="reviewer-info"><div class="reviewer-avatar">AK</div><div class="reviewer-name">Amit Kumar</div></div></div>
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Non-veg thali is amazing. Chicken curry ka taste bilkul maa ke haath jaisa hai."</p><div class="reviewer-info"><div class="reviewer-avatar">PB</div><div class="reviewer-name">Priyanka Behera</div></div></div>
+    <div class="review-card"><div class="stars">⭐⭐⭐⭐⭐</div><p>"Very professional service and affordable price in Cuttack. Highly recommended!"</p><div class="reviewer-info"><div class="reviewer-avatar">SN</div><div class="reviewer-name">Sanjay Nayak</div></div></div>
 </div>
 
 <section class="referral-box">
-    <h3>🎉 Refer a Friend & Save!</h3>
-    <p>Refer a friend to a monthly plan and get <strong>₹200 OFF</strong> on your next month.</p>
-    <a href="https://wa.me/message/SRYZ2V6YYVM6B1" class="order-btn" style="text-decoration:none; background:var(--gold); margin-top:0;">Invite via WhatsApp</a>
+    <h3>🎉 Refer & Earn ₹200!</h3>
+    <p>Doston ko refer karein. Jab wo order karenge, <b>Aapko milega ₹200 OFF!</b></p>
+    <div class="referral-input-container">
+        <input type="text" id="refPhone" placeholder="Enter Your Number">
+        <button onclick="shareReferral()" class="order-btn" style="margin-top:0; background:var(--gold); width:100%;">Share My Refer Code</button>
+    </div>
+    <p style="font-size: 10px; margin-top: 10px; opacity: 0.8;">*Your mobile number is your refer code</p>
 </section>
 
-<h2 class="section-title">Common Questions</h2>
-<div class="faq-container">
-    <div class="faq-item"><h4>🕒 Delivery Timings?</h4><p>Lunch: 12:30 PM - 1:30 PM | Dinner: 8:00 PM - 9:15 PM.</p></div>
-    <div class="faq-item"><h4>📅 Why 26 Days?</h4><p>We operate Mon-Sat. Sundays are off, so the monthly plan covers 26 service days.</p></div>
-    <div class="faq-item"><h4>🦐 Non-Veg Options?</h4><p>We serve fresh Prawns (Chingudi), Chicken, Fish, and Egg based on the day.</p></div>
+<h2 class="section-title">Frequently Asked Questions</h2>
+<div class="faq-section">
+    <div class="faq-item"><div class="faq-question">Do you deliver outside Cuttack? <span>+</span></div><div class="faq-answer">No, currently we serve only within Cuttack City limits.</div></div>
+    <div class="faq-item"><div class="faq-question">What are the delivery timings? <span>+</span></div><div class="faq-answer">Lunch: 12:30 PM - 1:30 PM | Dinner: 8:00 PM - 9:15 PM.</div></div>
+    <div class="faq-item"><div class="faq-question">How can I pay for my plan? <span>+</span></div><div class="faq-answer">You can pay via UPI (PhonePe/GPay) or Cash after the first trial meal.</div></div>
+    <div class="faq-item"><div class="faq-question">Is the food spicy or oily? <span>+</span></div><div class="faq-answer">We use minimal oil and balanced spices, keeping health and home-taste in mind.</div></div>
+    <div class="faq-item"><div class="faq-question">Can I cancel my meal for a day? <span>+</span></div><div class="faq-answer">Yes, just inform us 4 hours in advance, and we will adjust your plan.</div></div>
 </div>
 
-<div id="orderPopup">
+<div id="orderPopup" style="display: none;">
     <div class="popup-box">
-        <h3 id="popupPlanName" style="font-family:'Playfair Display'; margin-bottom:15px;">Order Form</h3>
-        <input type="text" id="custName" placeholder="Your Full Name">
-        <input type="text" id="custPhone" placeholder="Mobile Number">
-        <textarea id="custAddress" placeholder="Full Delivery Address" rows="3"></textarea>
-        <button class="confirm" id="confirmPlanOrder">Order via WhatsApp</button>
-        <button class="cancel" onclick="closeOrderPopup()">Go Back</button>
+        <div class="popup-header">
+            <h3 id="popupPlanName">Order Details</h3>
+            <p>Ready to serve you in Cuttack</p>
+        </div>
+        <div class="popup-body">
+            <div class="input-group">
+                <label>Full Name</label>
+                <input type="text" id="custName" placeholder="Enter your name">
+            </div>
+            <div class="input-group">
+                <label>Mobile Number</label>
+                <input type="text" id="custPhone" placeholder="Enter 10-digit number">
+            </div>
+            <div class="input-group">
+                <label>Delivery Address</label>
+                <textarea id="custAddress" placeholder="Full address with landmark in Cuttack" rows="2"></textarea>
+            </div>
+            <div class="input-group">
+                <label>Referral Code (Optional)</label>
+                <input type="text" id="refCodeInput" placeholder="Enter friend's number if any">
+            </div>
+        </div>
+        <div class="popup-footer">
+            <button class="confirm-btn" id="confirmPlanOrder">
+                <span>Confirm Order via WhatsApp</span>
+            </button>
+            <a href="javascript:void(0)" class="cancel-link" onclick="document.getElementById('orderPopup').style.display='none'">Go Back</a>
+        </div>
     </div>
 </div>
 
 <footer>
-    <div style="font-size:13px; line-height:2; margin-bottom:20px;">
+    <img src="https://i.ibb.co/k6JBsXLs/logo.png" alt="Logo" class="footer-logo">
+    <div class="footer-brand">Home Cooked Food</div>
+    <div class="footer-sub">Premium Tiffin Cuttack</div>
+    <div style="font-size:13px; line-height:2; margin-bottom:20px; color: #ccc;">
         📍 Near Collector Residence, Tulsipur, Cuttack<br>
-        📞 +91 8895611759<br>
-        🚚 Mon-Sat (Sunday Closed)
+        📞 +91 8895611759 | 🛑 Sunday Closed
     </div>
-    <a href="https://maps.app.goo.gl/N1HNJaMdtbkgMShw6?g_st=aw" target="_blank" class="map-btn">📍 View on Google Maps</a>
+    <a href="https://maps.google.com" id="mapLinkUrl" target="_blank" class="map-btn">📍 View on Google Maps</a>
 </footer>
 
 <script>
+    // UPDATE: Long Referral Share Logic (Sirf Text, Refer Code, aur Map Link)
+    function shareReferral() {
+        const num = document.getElementById('refPhone').value;
+        const mapUrl = document.getElementById('mapLinkUrl').href;
+
+        if(num.length < 10) { alert("Please enter a valid 10-digit mobile number"); return; }
+        
+        // Long Text Message
+        const msg = `Namaste! 🙏\n\nMain *Home Cooked Food Cuttack* ki premium tiffin service use kar raha hoon. Yahan bilkul ghar jaisa swad aur hygienic khana milta hai.\n\nAap bhi trial meal check karein sirf ₹130 mein. Agar aap mere refer code se monthly plan lete hain to hum dono ko ₹200 ka discount milega!\n\n📌 *Refer Code:* ${num}\n📍 *Location:* ${mapUrl}\n\nAaj hi order karein! 🥘`;
+        
+        window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    document.querySelectorAll('.faq-item').forEach(item => {
+        item.addEventListener('click', () => item.classList.toggle('active'));
+    });
+
     const tabButtons = document.querySelectorAll('.tab-btn');
     const planGrids = document.querySelectorAll('.plan-grid');
-
     tabButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             tabButtons.forEach(b => b.classList.remove('active'));
@@ -222,41 +297,28 @@
     });
 
     let currentPlanName = "";
-    let currentPlanPrice = 0;
     const popup = document.getElementById("orderPopup");
-
     document.querySelectorAll('.plan-order-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            openPopup(btn.dataset.name, btn.dataset.price);
-        });
+        btn.addEventListener('click', () => openPopup(btn.dataset.name, btn.dataset.price));
     });
-
-    document.getElementById("trialOrderBtn").addEventListener('click', () => {
-        openPopup("Trial Meal", "130");
-    });
-
+    document.getElementById("trialOrderBtn").addEventListener('click', () => openPopup("Trial Meal", "130"));
+    
     function openPopup(name, price) {
         currentPlanName = name;
-        currentPlanPrice = price;
         document.getElementById("popupPlanName").innerText = name + " - ₹" + price;
-        popup.style.display = "block";
+        popup.style.display = "flex";
     }
-
-    function closeOrderPopup() { popup.style.display = "none"; }
-
+    
     document.getElementById("confirmPlanOrder").addEventListener('click', () => {
-        const name = document.getElementById("custName").value.trim();
-        const phone = document.getElementById("custPhone").value.trim();
-        const addr = document.getElementById("custAddress").value.trim();
+        const name = document.getElementById("custName").value;
+        const phone = document.getElementById("custPhone").value;
+        const addr = document.getElementById("custAddress").value;
+        const refCode = document.getElementById("refCodeInput").value || "NONE";
         
         if(!name || !phone || !addr) { alert("Please fill all details"); return; }
-
-        // Updated to use Business Link with Pre-filled text
-        const baseUrl = "https://wa.me/message/SRYZ2V6YYVM6B1";
-        const message = `?text=*NEW ORDER*%0A*Name:* ${name}%0A*Order:* ${currentPlanName}%0A*Price:* ₹${currentPlanPrice}%0A*Address:* ${addr}%0A*Contact:* ${phone}`;
         
-        window.open(baseUrl + message, "_blank");
-        closeOrderPopup();
+        const message = `?text=*NEW ORDER (CUTTACK)*%0A*Name:* ${name}%0A*Order:* ${currentPlanName}%0A*Address:* ${addr}%0A*Contact:* ${phone}%0A*Referral Code:* ${refCode}`;
+        window.open("https://wa.me/918895611759" + message, "_blank");
     });
 </script>
 
