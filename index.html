@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Cooked Food | Premium Tiffin Cuttack</title>
+    <title>Home Cooked Food | Taste the Tradition </title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -37,7 +37,7 @@
         .brand-subtext { color: var(--gold); font-size: 9px; letter-spacing: 1px; text-transform: uppercase; font-weight: 700; }
         .header .call-btn { background: var(--gold); color: #fff; padding: 8px 15px; border-radius: 50px; font-weight: 700; text-decoration: none; font-size: 11px; transition: 0.3s; box-shadow: 0 4px 10px rgba(197, 160, 89, 0.3); }
 
-        /* HERO & PLANS */
+        /* HERO */
         .hero { padding: 40px 15px; text-align: center; }
         .hero h1 { font-family: 'Playfair Display'; font-size: 34px; margin-bottom: 10px; color: var(--black); }
         .hero .trial-box { background: var(--black); color: #fff; padding: 30px; border-radius: 20px; display: inline-block; margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 350px; }
@@ -51,10 +51,12 @@
         .trust-item span { font-size: 24px; display: block; margin-bottom: 5px; }
         .trust-item p { font-size: 10px; font-weight: 700; text-transform: uppercase; color: #7f8c8d; }
 
+        /* PLAN CARDS & TABS */
         .tab-container { max-width: 600px; margin: 30px auto; padding: 0 15px; }
         .tabs { display: flex; justify-content: center; gap: 8px; margin-bottom: 30px; background: #eee; padding: 5px; border-radius: 50px; }
-        .tabs button { flex: 1; padding: 12px 10px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; background: transparent; font-size: 12px; transition: 0.3s; color: #666; }
+        .tabs button { flex: 1; padding: 12px 10px; border: none; border-radius: 50px; font-weight: 600; cursor: pointer; background: transparent; font-size: 11px; transition: 0.3s; color: #666; }
         .tabs button.active { background: var(--black); color: var(--gold); }
+        
         .plan-card { background: #fff; padding: 40px 20px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; position: relative; overflow: hidden; }
         .plan-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: var(--gold); }
         .plan-price { font-size: 48px; font-weight: 800; margin: 15px 0; color: var(--black); }
@@ -115,6 +117,16 @@
         .popup-box label { font-size: 11px; font-weight: 800; color: var(--black); text-transform: uppercase; margin-bottom: 5px; display: block; margin-left: 5px;}
         .popup-box input, .popup-box textarea { width:100%; padding:12px; margin-bottom:12px; border:1px solid #e0e0e0; border-radius:10px; font-family: 'Poppins'; font-size: 14px; }
         .confirm-btn { width: 100%; background: var(--success); color: #fff; border: none; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; }
+
+        /* NEW ADDITIONS CSS */
+        .insta-box:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2) !important; border-color: var(--gold) !important; }
+        .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
+        .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
+        
+        /* Quantity Counter UI (Zomato Style) */
+        .qty-container { display: flex; align-items: center; justify-content: space-between; background: #f8f8f8; padding: 10px 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #eee; }
+        .qty-controls { display: flex; align-items: center; gap: 15px; background: var(--gold); padding: 5px 12px; border-radius: 50px; color: #fff; }
+        .qty-btn { cursor: pointer; font-size: 20px; font-weight: 800; user-select: none; }
     </style>
 </head>
 <body>
@@ -135,7 +147,7 @@
         <img src="https://i.ibb.co/k6JBsXLs/logo.png" alt="Logo" class="logo-img">
         <div class="brand-text">
             <span class="brand-name">Home Cooked Food</span>
-            <span class="brand-subtext">Premium Tiffin Cuttack</span>
+            <span class="brand-subtext">Taste the Traditions</span>
         </div>
     </a>
     <a href="tel:+918895611759" class="call-btn">📞 Call Now</a>
@@ -145,9 +157,9 @@
     <h1>Swaad Jo Dil Jeet Le!</h1>
     <div class="trial-box">
         <p style="font-size:11px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Cuttack Special Trial</p>
-        <p class="trial-msg">"Ghar se door, ghar jaisa khaana! 🏠 Hamara special trial meal sirf ₹130 mein taste karein."</p>
+        <p class="trial-msg">"Ghar se door, ghar jaisa khaana! 🏠 Hamara special trial meal sirf ₹130 mein aaj hi try karein."</p>
         <span class="price">₹130</span><br>
-        <button class="order-btn" id="trialOrderBtn">Order Trial Meal</button>
+        <button class="order-btn" id="trialOrderBtn" onclick="openOrderPopup('Trial Meal Pack', 130)">Order Trial Meal</button>
     </div>
 </section>
 
@@ -157,6 +169,72 @@
     <div class="trust-item"><span>🥘</span><p>Less Oil</p></div>
     <div class="trust-item"><span>🧼</span><p>Hygienic</p></div>
 </section>
+
+<h2 style="text-align:center; font-family:'Playfair Display'; margin-top:40px;">Single Meal ( Lunch/Dinner )</h2>
+<div class="tab-container">
+    <div class="tabs">
+        <button class="single-tab-btn active" data-single="single-veg">Veg Thali</button>
+        <button class="single-tab-btn" data-single="single-chicken">Chicken Thali</button>
+        <button class="single-tab-btn" data-single="single-fish">Fish Thali</button>
+        <button class="single-tab-btn" data-single="single-prawn">Prawn Thali</button>
+    </div>
+
+    <div class="single-plan-grid" id="single-veg">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">FRESH & LIGHT</span>
+            <h3>Veg Thali</h3>
+            <div class="plan-price">₹80<span>/per meal</span></div>
+            <ul class="plan-features">
+                <li><strong>Lunch:</strong> Rice, Dal, 2 Veg Sabji, Papad</li>
+                <li><strong>Dinner:</strong> 4 Ruti / Rice, Veg Sabji</li>
+                <li>Free Home Delivery</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Veg Thali', 80)">Order Now</button>
+        </div>
+    </div>
+
+    <div class="single-plan-grid" id="single-chicken" style="display:none;">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">NON-VEG DELIGHT</span>
+            <h3>Chicken Thali</h3>
+            <div class="plan-price">₹120<span>/per meal</span></div>
+            <ul class="plan-features">
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Chicken Curry, Papad</li>
+                <li>Fresh & Quality Meat</li>
+                <li>Free Home Delivery</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Chicken Thali', 120)">Order Now</button>
+        </div>
+    </div>
+
+    <div class="single-plan-grid" id="single-fish" style="display:none;">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">ODIA SPECIAL</span>
+            <h3>Fish Thali</h3>
+            <div class="plan-price">₹140<span>/per meal</span></div>
+            <ul class="plan-features">
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Fish Curry, Papad</li>
+                <li>Fresh Water Fish</li>
+                <li>Free Home Delivery</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Fish Thali', 140)">Order Now</button>
+        </div>
+    </div>
+
+    <div class="single-plan-grid" id="single-prawn" style="display:none;">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">PREMIUM SEAFOOD</span>
+            <h3>Prawn Thali</h3>
+            <div class="plan-price">₹160<span>/per meal</span></div>
+            <ul class="plan-features">
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Prawn Curry, Papad</li>
+                <li>Big Sized Prawns</li>
+                <li>Free Home Delivery</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Prawn Thali', 160)">Order Now</button>
+        </div>
+    </div>
+</div>
 
 <h2 style="text-align:center; font-family:'Playfair Display'; margin-top:40px;">Monthly Subscription Plans</h2>
 <div class="tab-container">
@@ -170,8 +248,8 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Premium Veg Thali</h3>
             <div class="plan-price">₹3500<span>/month</span></div>
-            <ul class="plan-features"><li>Lunch & Dinner Included</li><li>Free Home Delivery</li><li>Hygienic Home Style</li></ul>
-            <br><button class="order-btn plan-order-btn" data-name="Veg Thali">Order Now</button>
+            <ul class="plan-features"><li>Lunch & Dinner Included</li><li>Free Home Delivery</li><li>Hygienic Home Style</li><li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Monthly Veg Plan', 3500)">Order Now</button>
         </div>
     </div>
     <div class="plan-grid" id="mix" style="display:none;">
@@ -179,8 +257,8 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Veg & Non-Veg Mix</h3>
             <div class="plan-price">₹4500<span>/month</span></div>
-            <ul class="plan-features"><li>Non-Veg (Wed & Fri)</li><li>Free Home Delivery</li><li>Fresh Ingredients</li></ul>
-            <br><button class="order-btn plan-order-btn" data-name="Mix Thali">Order Now</button>
+            <ul class="plan-features"><li>Non-Veg (Wed & Fri)</li><li>Free Home Delivery</li><li>Fresh Ingredients</li><li>Lunch & Dinner Included<li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Monthly Mix Plan', 4500)">Order Now</button>
         </div>
     </div>
     <div class="plan-grid" id="nonveg" style="display:none;">
@@ -188,8 +266,8 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Royal Non-Veg Thali</h3>
             <div class="plan-price">₹5500<span>/month</span></div>
-            <ul class="plan-features"><li>Daily Non-Veg Options</li><li>Free Express Delivery</li><li>Authentic Swaad</li></ul>
-            <br><button class="order-btn plan-order-btn" data-name="Non-Veg Thali">Order Now</button>
+            <ul class="plan-features"><li>Daily Non-Veg Options</li><li>Free Express Delivery</li><li>Authentic Swaad</li><li>Lunch & Dinner Included<li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Monthly Non-Veg Plan', 5500)">Order Now</button>
         </div>
     </div>
 </div>
@@ -198,104 +276,47 @@
     <div class="section-header"><p>Ghar Ka Swasthya</p><h2>The Weekly Menu</h2></div>
     <div class="modern-menu-grid">
         <div class="premium-menu-card"><div class="day-header"><span class="day-name">Monday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Authentic Dalma, Steamed Rice, Seasonal Veg Fry, Papad</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Dal Tadka, Jeera Aloo, 4 Soft Whole Wheat Rotis</p></div></div></div>
-        <div class="premium-menu-card"><div class="day-header"><span class="day-name">Tuesday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Arhar Dal, Bhindi Bhaja, Rice, Fresh Salad</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Premium Shahi Paneer, Mix Veg, 4 Soft Rotis</p></div></div></div>
-        <div class="premium-menu-card non-veg-day"><div class="day-header"><span class="day-name">Wednesday</span><span class="nonveg-tag">Non-Veg Special</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Fresh Prawn/Fish Curry, Steamed Rice, Veg Fry</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Spicy Egg Tadka, 4 Fresh Rotis</p></div></div></div>
-        <div class="premium-menu-card"><div class="day-header"><span class="day-name">Thursday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Odia Veg Besara, Saga Muga, Rice, Papad</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Gobi Masala or Aloo Posto, 4 Rotis</p></div></div></div>
-        <div class="premium-menu-card non-veg-day"><div class="day-header"><span class="day-name">Friday</span><span class="nonveg-tag">Non-Veg Special</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Home Chicken Curry, Rice, Seasonal Veg Fry</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Omelette Curry, 4 Soft Handmade Rotis</p></div></div></div>
-        <div class="premium-menu-card"><div class="day-header"><span class="day-name">Saturday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Masala Khichdi, Baigana Bhaja, Chutney</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Green Peas Masala, Seasonal Sabzi, 4 Rotis</p></div></div></div>
+        <div class="premium-menu-card"><div class="day-header"><span class="day-name">Tuesday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Arhar Dal, Bhindi Bhaja, Rice, Fresh Salad</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Paneer, Mix Veg, 4 Soft Rotis</p></div></div></div>
+        <div class="premium-menu-card non-veg-day"><div class="day-header"><span class="day-name">Wednesday</span><span class="nonveg-tag">Non-Veg Special</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Fresh Prawn/Fish Curry, Steamed Rice, Veg Fry</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Egg Tadka, 4 Fresh Rotis</p></div></div></div>
+        <div class="premium-menu-card"><div class="day-header"><span class="day-name">Thursday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Veg Besara, Saga Muga, Rice, Papad</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Gobi Masala , 4 Rotis</p></div></div></div>
+        <div class="premium-menu-card non-veg-day"><div class="day-header"><span class="day-name">Friday</span><span class="nonveg-tag">Non-Veg Special</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Chicken Curry, Rice, Seasonal Veg Fry</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Omelette Curry, 4 Soft Rotis</p></div></div></div>
+        <div class="premium-menu-card"><div class="day-header"><span class="day-name">Saturday</span></div><div class="meal-box"><span class="meal-icon">☀️</span><div class="meal-content"><span class="meal-label">Lunch</span><p class="meal-items">Potala bhaja, Baigana Bhaja, Chutney</p></div></div><div class="meal-box"><span class="meal-icon">🌙</span><div class="meal-content"><span class="meal-label">Dinner</span><p class="meal-items">Green Peas Masala, Seasonal Sabzi, 4 Rotis</p></div></div></div>
     </div>
 </section>
 
 <h2 style="text-align:center; font-family:'Playfair Display'; margin:40px 0 10px;">Our Happy Customers</h2>
 <div class="reviews-wrapper">
     <div class="reviews-scroll">
-        
         <div class="review-card">
-            <img src="https://i.ibb.co/VWsNPzzN/image.jpg" class="review-img">
+            <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=400&h=300&fit=crop" class="review-img">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଏହାର ସ୍ୱାଦ ପୁରା ଘର ରାନ୍ଧଣା ପରି, ଜମାରୁ ବି ଲାଗୁନି ଯେ ବାହାରୁ ଆସିଛି। ବହୁତ ବଢିଆ!"</span>
-            <span class="reviewer-name">Soumya Ranjan</span>
+            <span class="review-text">"ମଣ୍ଡେ ର ଡାଲମା ପୁରା ଘର ଭଳି ସ୍ୱାଦ। ବହୁତ ବଢିଆ ହେଇଥିଲା।"</span>
+            <span class="reviewer-name">Soumya Ranjan Das</span>
         </div>
-
         <div class="review-card">
-            <img src="https://i.ibb.co/PvtqMrvb/image.jpg" class="review-img">
+            <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" class="review-img">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଖାଦ୍ୟର କ୍ୱାଲିଟି ବହୁତ ଉନ୍ନତ ଆଉ ମସଲା ମଧ୍ୟ ବହୁତ କମ୍ ଅଛି। ହେଲଦି ଖାଦ୍ୟ।"</span>
+            <span class="review-text">"ପନିର ତରକାରୀ ପୁରା ସଫ୍ଟ ଥିଲା, ମସଲା ବି ବହୁତ କମ।"</span>
             <span class="reviewer-name">Subhalaxmi Sahoo</span>
         </div>
-
         <div class="review-card">
-            <img src="https://i.ibb.co/dJmT23nJ/image.jpg" class="review-img">
+            <img src="https://images.unsplash.com/photo-1567306301498-519dde99a796?w=400&h=300&fit=crop" class="review-img">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଡେଲିଭରି ବହୁତ ଫାଷ୍ଟ ଅଛି, ପୁରା ଗରମ ଗରମ ଖାଦ୍ୟ ଟାଇମ୍‌ରେ ପହଞ୍ଚୁଛି।"</span>
+            <span class="review-text">"ମାଛ ତରକାରୀ ର ଝୋଳ ପୁରା ଦେଶୀ ଷ୍ଟାଇଲ। ଖାଇକି ମଜା ଆସିଗଲା।"</span>
             <span class="reviewer-name">Biswajit Mohanty</span>
         </div>
-
         <div class="review-card">
-            <img src="https://i.ibb.co/mFGLL7fz/image.jpg" class="review-img">
+            <img src="https://images.unsplash.com/photo-1633945274405-b6c8069047b0?w=400&h=300&fit=crop" class="review-img">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଖାଦ୍ୟର କ୍ୱାଣ୍ଟିଟି ବହୁତ ଭଲ ଅଛି, ଜଣଙ୍କ ପାଇଁ ପୁରା ଯଥେଷ୍ଟ।"</span>
-            <span class="reviewer-name">Priyanka P.</span>
+            <span class="review-text">"ଏଗ୍ ତଡକା ଆଉ ରୁଟି ର କୋମ୍ବୋ ସବୁଠୁ ବେଷ୍ଟ।"</span>
+            <span class="reviewer-name">Priyanka Priyadarshini</span>
         </div>
-
         <div class="review-card">
-            <img src="https://i.ibb.co/SDvzyG2k/image.jpg" class="review-img">
+            <img src="https://images.unsplash.com/photo-1596797038558-b11911a4d46c?w=400&h=300&fit=crop" class="review-img">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ପରିବା ଗୁଡିକ ବହୁତ ଫ୍ରେସ୍ ଲାଗୁଛି, କ୍ୱାଲିଟି ସହିତ କୌଣସି କମ୍ପ୍ରୋମାଇଜ୍ କରାଯାଇନି।"</span>
+            <span class="review-text">"ବେସର ଆଉ ଶାଗ ମୁଗ ପୁରା ଅଥେଣ୍ଟିକ ଓଡ଼ିଆ ସ୍ୱାଦ।"</span>
             <span class="reviewer-name">Rashmi Rekha</span>
         </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/5xC4zt8M/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ପ୍ୟାକିଂ ବହୁତ ସଫାସୁତୁରା ଆଉ ହାଇଜେନିକ। ଦେଖିକି ହିଁ ଖୁସି ଲାଗିଲା।"</span>
-            <span class="reviewer-name">Deepak M.</span>
-        </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/chd7s74f/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଏତେ କମ୍ ଦାମରେ ଏତେ ଭଲ କ୍ୱାଲିଟିର ଖାଦ୍ୟ କଟକରେ ମିଳିବା କଷ୍ଟ। ବେଷ୍ଟ ସର୍ଭିସ।"</span>
-            <span class="reviewer-name">Anjali Mishra</span>
-        </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/SXhJWbvB/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଖାଦ୍ୟର ବାସ୍ନା ପୁରା ଭୋକ ବଢେଇ ଦେଉଛି, ସ୍ୱାଦ ବି ସେମିତି ଜବରଦସ୍ତ।"</span>
-            <span class="reviewer-name">Satyajit Swain</span>
-        </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/rRPVgZ22/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ତେଲ ବହୁତ କମ୍ ବ୍ୟବହାର ହେଉଛି, ଯାହାକି ସ୍ୱାସ୍ଥ୍ୟ ପାଇଁ ବହୁତ ଭଲ।"</span>
-            <span class="reviewer-name">Lipika Patra</span>
-        </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/HTYFSsJw/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ମୁଁ ପ୍ରତିଦିନ ଏଠୁ ମଗାଉଛି, କ୍ୱାଲିଟି ସବୁବେଳେ ସମାନ ରହୁଛି। ଧନ୍ୟବାଦ।"</span>
-            <span class="reviewer-name">Sushant Jena</span>
-        </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/zWptrzN2/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ସର୍ଭିସ ଆଉ ବ୍ୟବହାର ବହୁତ ଭଲ, ଖାଦ୍ୟ ବି ପୁରା ଗରମ ଗରମ ଆସୁଛି।"</span>
-            <span class="reviewer-name">Manoj Das</span>
-        </div>
-
-        <div class="review-card">
-            <img src="https://i.ibb.co/rfqtt35j/image.jpg" class="review-img">
-            <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"ଖାଦ୍ୟ ପୁରା ନରମ ଆଉ ଫ୍ରେସ୍ ରହୁଛି, ଖାଇଲା ବେଳକୁ ପୁରା ଶାନ୍ତି ଲାଗୁଛି।"</span>
-            <span class="reviewer-name">Amit Kumar</span>
-        </div>
-
-        <div class="review-card"><img src="https://i.ibb.co/VWsNPzzN/image.jpg" class="review-img"></div>
-        <div class="review-card"><img src="https://i.ibb.co/PvtqMrvb/image.jpg" class="review-img"></div>
     </div>
 </div>
 
@@ -308,25 +329,47 @@
     </div>
 </section>
 
+<div style="text-align: center; margin-bottom: 45px; padding: 0 20px;">
+    <div style="width: 50px; height: 3px; background: var(--gold); margin: 0 auto 20px; border-radius: 10px;"></div>
+    <p style="font-size: 10px; font-weight: 800; color: var(--gold); letter-spacing: 3px; margin-bottom: 8px; text-transform: uppercase;">Connect With Us</p>
+    <h4 style="font-family: 'Playfair Display'; font-size: 22px; color: var(--black); margin-bottom: 20px;">Follow Our Kitchen Stories</h4>
+    <a href="https://www.instagram.com/home.cookedfood1?igsh=MzRlODBiNWFlZA==" target="_blank" style="text-decoration: none; display: inline-block;">
+        <div class="insta-box" style="background: #ffffff; padding: 12px 25px; border-radius: 50px; display: flex; align-items: center; gap: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #f0f0f0; transition: all 0.4s ease;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" alt="Insta" style="width: 28px; height: 28px;">
+            <div style="text-align: left;">
+                <span style="display: block; font-size: 13px; font-weight: 800; color: var(--black); line-height: 1.2;">@home.cookedfood1</span>
+                <span style="display: block; font-size: 10px; color: #888; font-weight: 600;">Followers Special Offers</span>
+            </div>
+        </div>
+    </a>
+</div>
+
 <div class="faq-section">
     <div class="faq-item"><div class="faq-question">Do you deliver outside Cuttack? <span>+</span></div><div class="faq-answer">No, currently we serve only within Cuttack City limits.</div></div>
-    <div class="faq-item"><div class="faq-question">What are the delivery timings? <span>+</span></div><div class="faq-answer">Lunch: 12:30 PM - 1:30 PM | Dinner: 8:00 PM - 9:15 PM.</div></div>
+    <div class="faq-item"><div class="faq-question">What are the delivery timings? <span>+</span></div><div class="faq-answer">Lunch: 12:30 PM - 1:30 PM | Dinner: 8:00 PM - 9:00 PM.</div></div>
     <div class="faq-item"><div class="faq-question">How can I pay for my plan? <span>+</span></div><div class="faq-answer">You can pay via UPI (PhonePe/GPay) or Cash after the first trial meal.</div></div>
     <div class="faq-item"><div class="faq-question">Is the food spicy or oily? <span>+</span></div><div class="faq-answer">We use minimal oil and balanced spices, keeping health and home-taste in mind.</div></div>
+    <div class="faq-item"><div class="faq-question">Can we place an order on Sunday? <span>+</span></div><div class="faq-answer">Yes, we only provide service 6 days a week. If you want to order food on Sunday as well, you can order through our single meal plan.</div></div>
+    <div class="faq-item"><div class="faq-question">Can we order breakfast? <span>+</span></div><div class="faq-answer">This service is not currently available, but we will provide this service soon.</div></div>
+    <div class="faq-item"><div class="faq-question">Can we order some snacks/tiffin/Fastfoods in the evening? <span>+</span></div><div class="faq-answer">Not right now, but we will be bringing this service to you soon.</div></div>
 </div>
 
 <footer>
     <img src="https://i.ibb.co/k6JBsXLs/logo.png" alt="Logo" class="footer-logo">
     <div class="footer-brand">HOME COOKED FOOD</div>
-    <span style="color:var(--gold); font-size:13px; font-style:italic; font-weight:600; margin-bottom:20px; display:block;">Swaad Jo Dil Jeet Le! ❤️</span>
+    <span style="color:var(--gold); font-size:13px; font-style:italic; font-weight:600; margin-bottom:20px; display:block;">Taste the Traditions</span>
     <div class="footer-info">
         <span>📍 Near Collector Residence, Tulsipur, Cuttack</span>
         <span>📞 +91 88956 11759</span>
-        <span>⏰ Lunch: 12:30 PM | Dinner: 8:00 PM | 🛑 Sun Closed</span>
+        <span>⏰ Lunch: 12:30 PM - 1:30 PM | Dinner: 8:00 PM - 9:00 PM | 🛑 Sun Closed</span>
     </div>
-    <a href="Https://maps.app.goo.gl/N1HNJaMdtbkgMShw6?g_st=aw" target="_blank" class="map-btn">📍 Open Google Maps</a>
+    <a href="https://maps.app.goo.gl/T2bMvuArdnpNDHzw9?g_st=awb" target="_blank" class="map-btn">📍 Open Google Maps</a>
     <div class="copyright">© 2026 Home Cooked Food Cuttack. All Rights Reserved.</div>
 </footer>
+
+<a href="https://wa.me/918895611759?text=Hello!" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width: 35px; height: 35px;">
+</a>
 
 <div id="orderPopup">
     <div class="popup-box">
@@ -344,52 +387,111 @@
             <label>Delivery Address</label>
             <textarea id="custAddress" rows="2" placeholder="Cuttack Area, House No, Landmark"></textarea>
 
+            <div class="qty-container" id="qtyBox">
+                <span style="font-weight: 700; color: #333; font-size:13px;">Number of Plates</span>
+                <div class="qty-controls">
+                    <span onclick="updateQty(-1)" class="qty-btn">−</span>
+                    <span id="qtyCounter" style="font-size: 18px; font-weight: 800; min-width: 20px; text-align: center;">1</span>
+                    <span onclick="updateQty(1)" class="qty-btn">+</span>
+                </div>
+            </div>
+
             <label>Refer Code (Optional)</label>
             <input type="text" id="custReferCode" placeholder="Enter refer phone number">
 
-            <button class="confirm-btn" id="confirmPlanOrder">
-                Confirm on WhatsApp
-            </button>
+            <div style="text-align: center; margin-bottom: 15px; background: #fff9ef; padding: 10px; border-radius: 12px; border: 1px dashed var(--gold);">
+                <span style="font-size: 11px; font-weight: 700; color: #888;">TOTAL PAYABLE</span>
+                <div id="totalAmountDisplay" style="font-size: 24px; font-weight: 800; color: var(--black);">₹0</div>
+            </div>
+
+            <button class="confirm-btn" id="confirmPlanOrder">Confirm on WhatsApp</button>
             <p onclick="document.getElementById('orderPopup').style.display='none'" style="text-align:center; margin-top:15px; cursor:pointer; font-size:12px; font-weight:700; color:#888;">CANCEL</p>
         </div>
     </div>
 </div>
 
 <script>
+    // FAQ Toggle
     document.querySelectorAll('.faq-item').forEach(item => {
         item.addEventListener('click', () => item.classList.toggle('active'));
     });
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const planGrids = document.querySelectorAll('.plan-grid');
-    tabButtons.forEach(btn => {
+
+    // Single Meal Tab Logic
+    const singleBtns = document.querySelectorAll('.single-tab-btn');
+    const singleGrids = document.querySelectorAll('.single-plan-grid');
+    singleBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            tabButtons.forEach(b => b.classList.remove('active'));
+            singleBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            planGrids.forEach(grid => { grid.style.display = (grid.id === btn.dataset.tab) ? 'block' : 'none'; });
+            singleGrids.forEach(grid => {
+                grid.style.display = (grid.id === btn.dataset.single) ? 'block' : 'none';
+            });
         });
     });
 
+    // Monthly Subscription Tab Logic
+    const monthlyBtns = document.querySelectorAll('.tab-btn');
+    const monthlyGrids = document.querySelectorAll('.plan-grid');
+    monthlyBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            monthlyBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            monthlyGrids.forEach(grid => {
+                grid.style.display = (grid.id === btn.dataset.tab) ? 'block' : 'none';
+            });
+        });
+    });
+
+    // ORDER CALCULATION LOGIC
+    let currentPlanPrice = 0;
     let currentPlanName = "";
-    function openOrderPopup(plan) {
+    let quantity = 1;
+
+    function openOrderPopup(plan, price) {
         currentPlanName = plan;
+        currentPlanPrice = price;
+        quantity = 1; 
         document.getElementById("selectedPlanDisplay").innerText = "SELECTED: " + plan;
+        document.getElementById("qtyCounter").innerText = quantity;
         document.getElementById("orderPopup").style.display = "flex";
+
+        const qtyBox = document.getElementById("qtyBox");
+        if(plan.toLowerCase().includes("monthly")) {
+            qtyBox.style.display = "none";
+        } else {
+            qtyBox.style.display = "flex";
+        }
+
+        calculateTotal();
     }
 
-    document.querySelectorAll('.plan-order-btn').forEach(btn => {
-        btn.addEventListener('click', () => openOrderPopup(btn.dataset.name));
-    });
-    document.getElementById("trialOrderBtn").addEventListener('click', () => openOrderPopup("Trial Pack (₹130)"));
+    function updateQty(val) {
+        quantity += val;
+        if (quantity < 1) quantity = 1;
+        if (quantity > 20) quantity = 20; 
+        document.getElementById("qtyCounter").innerText = quantity;
+        calculateTotal();
+    }
+
+    function calculateTotal() {
+        const total = currentPlanPrice * quantity;
+        document.getElementById("totalAmountDisplay").innerText = "₹" + total;
+    }
 
     document.getElementById("confirmPlanOrder").addEventListener('click', () => {
         const name = document.getElementById("custName").value;
         const phone = document.getElementById("custPhone").value;
         const addr = document.getElementById("custAddress").value;
         const refer = document.getElementById("custReferCode").value || "No Refer Code";
+        const total = currentPlanPrice * quantity;
 
         if(!name || !phone || !addr) { alert("Please fill details"); return; }
-
-        const msg = `*NEW ORDER*%0A*Plan:* ${currentPlanName}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${addr}%0A*Refer Code:* ${refer}`;
+        
+        let msg = `*NEW ORDER*%0A*Plan:* ${currentPlanName}%0A`;
+        if(!currentPlanName.toLowerCase().includes("monthly")) {
+            msg += `*Qty:* ${quantity} Plate(s)%0A`;
+        }
+        msg += `*Total:* ₹${total}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${addr}%0A*Refer:* ${refer}`;
         window.open(`https://wa.me/918895611759?text=${msg}`, "_blank");
     });
 
@@ -399,5 +501,6 @@
         window.open(`https://wa.me/?text=Try Home Cooked Food Cuttack! Use my code ${num} for ₹200 OFF`, '_blank');
     }
 </script>
+
 </body>
 </html>
