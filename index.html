@@ -43,6 +43,11 @@
         .hero .trial-box { background: var(--black); color: #fff; padding: 30px; border-radius: 20px; display: inline-block; margin-top: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); max-width: 350px; }
         .trial-msg { font-size: 14px; color: #ccc; margin-bottom: 15px; font-style: italic; line-height: 1.4; }
         .hero .price { font-size: 40px; font-weight: 800; color: var(--gold); }
+        
+        /* Pre-order Notice Style */
+        .pre-order-notice { display: block; font-size: 11px; color: #888; margin-top: 2px; font-weight: 600; text-transform: uppercase; }
+        .hero .pre-order-notice { color: #aaa; margin-bottom: 10px; }
+
         .order-btn { display: inline-block; padding: 12px 35px; margin-top: 15px; background: var(--gold); color: #fff; border-radius: 50px; font-weight: 600; text-decoration: none; border: none; cursor: pointer; animation: pulse-animation 2s infinite; }
         @keyframes pulse-animation { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
@@ -59,7 +64,7 @@
         
         .plan-card { background: #fff; padding: 40px 20px; border-radius: 30px; box-shadow: 0 20px 40px rgba(0,0,0,0.05); text-align: center; border: 1px solid #f0f0f0; position: relative; overflow: hidden; }
         .plan-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: var(--gold); }
-        .plan-price { font-size: 48px; font-weight: 800; margin: 15px 0; color: var(--black); }
+        .plan-price { font-size: 48px; font-weight: 800; margin: 15px 0 5px; color: var(--black); }
         .plan-features { list-style: none; margin: 20px 0; padding: 0; text-align: left; display: inline-block; }
         .plan-features li { margin-bottom: 10px; font-size: 14px; display: flex; align-items: center; gap: 10px; }
         .plan-features li::before { content: '✓'; color: var(--success); font-weight: 900; }
@@ -168,8 +173,9 @@
     <h1>Swaad Jo Dil Jeet Le!</h1>
     <div class="trial-box">
         <p style="font-size:11px; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Cuttack Special Trial</p>
-        <p class="trial-msg">"Ghar se door, ghar jaisa khaana! 🏠 Hamara special trial meal sirf ₹130 mein aaj hi try karein."</p>
-        <span class="price">₹130</span><br>
+        <p class="trial-msg">"Ghar se door, ghar jaisa khaana! 🏠 Hamara special trial meal aaj hi try karein."</p>
+        <span class="price">₹130</span>
+        <span class="pre-order-notice">( Please order 1 day in advance )</span>
         <button class="order-btn" id="trialOrderBtn" onclick="openOrderPopup('Trial Meal Pack', 130)">Order Trial Meal</button>
     </div>
 </section>
@@ -197,6 +203,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">FRESH & LIGHT</span>
             <h3>Veg Thali</h3>
             <div class="plan-price">₹80<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
                 <li><strong>Lunch:</strong> Rice, Dal, 2 Veg Sabji, Papad</li>
                 <li><strong>Dinner:</strong> 4 Ruti / Rice, Veg Sabji</li>
@@ -211,6 +218,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">PROTEIN RICH</span>
             <h3>Egg Thali</h3>
             <div class="plan-price">₹100<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Egg Curry (2 Eggs), Papad</li>
                 <li>Fresh & Home Style</li>
@@ -225,6 +233,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">VEG DELUXE</span>
             <h3>Paneer Thali</h3>
             <div class="plan-price">₹120<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Paneer Butter Masala, Papad</li>
                 <li>Soft & Fresh Paneer</li>
@@ -239,6 +248,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">NON-VEG DELIGHT</span>
             <h3>Chicken Thali</h3>
             <div class="plan-price">₹130<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Chicken Curry, Papad</li>
                 <li>Fresh & Quality Meat</li>
@@ -253,6 +263,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">ODIA SPECIAL</span>
             <h3>Fish Thali</h3>
             <div class="plan-price">₹140<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Fish Curry, Papad</li>
                 <li>Fresh Water Fish</li>
@@ -267,6 +278,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">PREMIUM SEAFOOD</span>
             <h3>Prawn Thali</h3>
             <div class="plan-price">₹160<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Prawn Curry, Papad</li>
                 <li>Big Sized Prawns</li>
@@ -289,6 +301,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Premium Veg Thali</h3>
             <div class="plan-price">₹3500<span>/month</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features"><li>Lunch & Dinner Included</li><li>Free Home Delivery</li><li>Hygienic Home Style</li><li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
             <br><button class="order-btn" onclick="openOrderPopup('Monthly Veg Plan', 3500)">Order Now</button>
         </div>
@@ -298,6 +311,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Veg & Non-Veg Mix</h3>
             <div class="plan-price">₹4500<span>/month</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features"><li>Non-Veg (Wed & Fri)</li><li>Free Home Delivery</li><li>Fresh Ingredients</li><li>Lunch & Dinner Included<li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
             <br><button class="order-btn" onclick="openOrderPopup('Monthly Mix Plan', 4500)">Order Now</button>
         </div>
@@ -307,6 +321,7 @@
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Royal Non-Veg Thali</h3>
             <div class="plan-price">₹5500<span>/month</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features"><li>Daily Non-Veg Options</li><li>Free Express Delivery</li><li>Authentic Swaad</li><li>Lunch & Dinner Included<li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
             <br><button class="order-btn" onclick="openOrderPopup('Monthly Non-Veg Plan', 5500)">Order Now</button>
         </div>
@@ -590,12 +605,12 @@
             document.getElementById("qtyBox").style.display = "none";
             document.getElementById("pincodeSection").style.display = "none";
             document.getElementById("deliveryRow").style.display = "none";
-            document.getElementById("timingSection").style.display = "none"; // Hide timing for monthly
+            document.getElementById("timingSection").style.display = "none";
         } else {
             document.getElementById("qtyBox").style.display = "flex";
             document.getElementById("pincodeSection").style.display = "block";
             document.getElementById("deliveryRow").style.display = "flex";
-            document.getElementById("timingSection").style.display = "block"; // Show timing for single/trial
+            document.getElementById("timingSection").style.display = "block";
         }
         calculateTotal();
     }
@@ -656,7 +671,7 @@
             setTimeout(() => {
                 let msg = `*NEW ORDER*%0A*Plan:* ${currentPlanName}%0A`;
                 if(!currentPlanName.toLowerCase().includes("monthly")) {
-                    msg += `*Timing:* ${timing}%0A`; // Added timing to WhatsApp message
+                    msg += `*Timing:* ${timing}%0A`;
                     msg += `*Qty:* ${quantity} Plate(s)%0A*Delivery Fee:* ₹${deliveryFee}%0A`;
                 }
                 msg += `*Total:* ₹${finalTotal}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Pincode:* ${pin}%0A*Address:* ${addr}`;
