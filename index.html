@@ -115,15 +115,26 @@
         .popup-header { background: var(--black); color: #fff; padding: 25px; text-align: center; border-bottom: 3px solid var(--gold); }
         .popup-body { padding: 20px 25px 25px; }
         .popup-box label { font-size: 11px; font-weight: 800; color: var(--black); text-transform: uppercase; margin-bottom: 5px; display: block; margin-left: 5px;}
-        .popup-box input, .popup-box textarea { width:100%; padding:12px; margin-bottom:12px; border:1px solid #e0e0e0; border-radius:10px; font-family: 'Poppins'; font-size: 14px; }
+        .popup-box input, .popup-box textarea, .popup-box select { width:100%; padding:12px; margin-bottom:12px; border:1px solid #e0e0e0; border-radius:10px; font-family: 'Poppins'; font-size: 14px; }
         .confirm-btn { width: 100%; background: var(--success); color: #fff; border: none; padding: 16px; border-radius: 12px; font-weight: 700; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 16px; }
 
-        /* NEW ADDITIONS CSS */
+        /* PROCESSING OVERLAY */
+        #processingScreen {
+            display:none; position:fixed; top:0; left:0; width:100%; height:100%;
+            background: #000; z-index:10000; flex-direction: column; align-items: center; justify-content: center; text-align: center; color: white;
+        }
+        .checkmark { width: 80px; height: 80px; border-radius: 50%; display: block; stroke-width: 2; stroke: var(--gold); stroke-miterlimit: 10; margin: 0 auto 20px; box-shadow: inset 0px 0px 0px var(--gold); animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both; }
+        .checkmark__circle { stroke-dasharray: 166; stroke-dashoffset: 166; stroke-width: 2; stroke-miterlimit: 10; stroke: var(--gold); fill: none; animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards; }
+        .checkmark__check { transform-origin: 50% 50%; stroke-dasharray: 48; stroke-dashoffset: 48; animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards; }
+        @keyframes stroke { 100% { stroke-dashoffset: 0; } }
+        @keyframes scale { 0%, 100% { transform: none; } 50% { transform: scale3d(1.1, 1.1, 1); } }
+        @keyframes fill { 100% { box-shadow: inset 0px 0px 0px 30px transparent; } }
+
+        /* OTHER CSS */
         .insta-box:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(197, 160, 89, 0.2) !important; border-color: var(--gold) !important; }
         .whatsapp-float { position: fixed; width: 60px; height: 60px; bottom: 20px; right: 20px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.2); z-index: 1000; display: flex; align-items: center; justify-content: center; transition: 0.3s; }
         .whatsapp-float:hover { transform: scale(1.1); background-color: #128C7E; }
         
-        /* Quantity Counter UI (Zomato Style) */
         .qty-container { display: flex; align-items: center; justify-content: space-between; background: #f8f8f8; padding: 10px 15px; border-radius: 12px; margin-bottom: 15px; border: 1px solid #eee; }
         .qty-controls { display: flex; align-items: center; gap: 15px; background: var(--gold); padding: 5px 12px; border-radius: 50px; color: #fff; }
         .qty-btn { cursor: pointer; font-size: 20px; font-weight: 800; user-select: none; }
@@ -135,7 +146,7 @@
 
 <div class="promo-bar">
     <div class="ticker-wrapper">
-        <div class="ticker-item">🚚 FREE DELIVERY ONLY IN CUTTACK CITY</div>
+        <div class="ticker-item">🚚 FREE DELIVERY ON MONTHLY PLANS</div>
         <div class="ticker-item">🌿 HYGIENIC & FRESH HOME COOKED MEALS</div>
         <div class="ticker-item">🛑 CLOSED ON SUNDAYS</div>
         <div class="ticker-item">🎁 REFER A FRIEND & GET ₹200 OFF</div>
@@ -172,11 +183,13 @@
 
 <h2 style="text-align:center; font-family:'Playfair Display'; margin-top:40px;">Single Meal ( Lunch/Dinner )</h2>
 <div class="tab-container">
-    <div class="tabs">
-        <button class="single-tab-btn active" data-single="single-veg">Veg Thali</button>
-        <button class="single-tab-btn" data-single="single-chicken">Chicken Thali</button>
-        <button class="single-tab-btn" data-single="single-fish">Fish Thali</button>
-        <button class="single-tab-btn" data-single="single-prawn">Prawn Thali</button>
+    <div class="tabs" style="flex-wrap: wrap;">
+        <button class="single-tab-btn active" data-single="single-veg">Veg</button>
+        <button class="single-tab-btn" data-single="single-egg">Egg</button>
+        <button class="single-tab-btn" data-single="single-paneer">Paneer</button>
+        <button class="single-tab-btn" data-single="single-chicken">Chicken</button>
+        <button class="single-tab-btn" data-single="single-fish">Fish</button>
+        <button class="single-tab-btn" data-single="single-prawn">Prawn</button>
     </div>
 
     <div class="single-plan-grid" id="single-veg">
@@ -187,9 +200,37 @@
             <ul class="plan-features">
                 <li><strong>Lunch:</strong> Rice, Dal, 2 Veg Sabji, Papad</li>
                 <li><strong>Dinner:</strong> 4 Ruti / Rice, Veg Sabji</li>
-                <li>Free Home Delivery</li>
+                <li>Fast Delivery in Cuttack</li>
             </ul>
             <br><button class="order-btn" onclick="openOrderPopup('Single Veg Thali', 80)">Order Now</button>
+        </div>
+    </div>
+
+    <div class="single-plan-grid" id="single-egg" style="display:none;">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">PROTEIN RICH</span>
+            <h3>Egg Thali</h3>
+            <div class="plan-price">₹100<span>/per meal</span></div>
+            <ul class="plan-features">
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Egg Curry (2 Eggs), Papad</li>
+                <li>Fresh & Home Style</li>
+                <li>Fast Delivery in Cuttack</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Egg Thali', 100)">Order Now</button>
+        </div>
+    </div>
+
+    <div class="single-plan-grid" id="single-paneer" style="display:none;">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">VEG DELUXE</span>
+            <h3>Paneer Thali</h3>
+            <div class="plan-price">₹120<span>/per meal</span></div>
+            <ul class="plan-features">
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Paneer Butter Masala, Papad</li>
+                <li>Soft & Fresh Paneer</li>
+                <li>Fast Delivery in Cuttack</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Paneer Thali', 120)">Order Now</button>
         </div>
     </div>
 
@@ -197,13 +238,13 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">NON-VEG DELIGHT</span>
             <h3>Chicken Thali</h3>
-            <div class="plan-price">₹120<span>/per meal</span></div>
+            <div class="plan-price">₹130<span>/per meal</span></div>
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Chicken Curry, Papad</li>
                 <li>Fresh & Quality Meat</li>
-                <li>Free Home Delivery</li>
+                <li>Fast Delivery in Cuttack</li>
             </ul>
-            <br><button class="order-btn" onclick="openOrderPopup('Single Chicken Thali', 120)">Order Now</button>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Chicken Thali', 130)">Order Now</button>
         </div>
     </div>
 
@@ -215,7 +256,7 @@
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Fish Curry, Papad</li>
                 <li>Fresh Water Fish</li>
-                <li>Free Home Delivery</li>
+                <li>Fast Delivery in Cuttack</li>
             </ul>
             <br><button class="order-btn" onclick="openOrderPopup('Single Fish Thali', 140)">Order Now</button>
         </div>
@@ -229,7 +270,7 @@
             <ul class="plan-features">
                 <li><strong>Lunch/Dinner:</strong> Rice, Dal, Prawn Curry, Papad</li>
                 <li>Big Sized Prawns</li>
-                <li>Free Home Delivery</li>
+                <li>Fast Delivery in Cuttack</li>
             </ul>
             <br><button class="order-btn" onclick="openOrderPopup('Single Prawn Thali', 160)">Order Now</button>
         </div>
@@ -344,7 +385,7 @@
         <div class="review-card">
             <img src="https://i.ibb.co/HTYFSsJw/image.jpg" class="review-img">
             <div class="stars">⭐⭐⭐⭐⭐</div>
-            <span class="review-text">"Impeccable hygiene standards. The delivery person was very courteous."</span>
+            <span class="review-text">"Impeccable hygiene standards. The delivery person was very courtesy."</span>
             <span class="reviewer-name">Sonalika Rout</span>
         </div>
         <div class="review-card">
@@ -413,6 +454,22 @@
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WA" style="width: 35px; height: 35px;">
 </a>
 
+<div id="processingScreen">
+    <div id="loaderGroup">
+        <div class="spinner" style="border: 4px solid rgba(255,255,255,0.1); border-left-color: var(--gold); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; margin: 0 auto 20px;"></div>
+        <p style="color:var(--gold); font-weight:600; letter-spacing:1px;">VERIFYING YOUR ORDER...</p>
+    </div>
+    <div id="successGroup" style="display:none;">
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+            <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+            <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+        <h2 style="color:var(--gold); font-family:'Playfair Display'; margin-bottom:10px;">ORDER PLACED!</h2>
+        <p style="font-size:12px; opacity:0.8;">Redirecting to WhatsApp...</p>
+    </div>
+</div>
+<style>@keyframes spin { to { transform: rotate(360deg); } }</style>
+
 <div id="orderPopup">
     <div class="popup-box">
         <div class="popup-header">
@@ -426,8 +483,22 @@
             <label>WhatsApp Number</label>
             <input type="tel" id="custPhone" placeholder="Enter 10-digit number">
 
+            <div id="timingSection">
+                <label>Select Timing</label>
+                <select id="custTiming">
+                    <option value="Lunch">Lunch (12:30 PM - 1:30 PM)</option>
+                    <option value="Dinner">Dinner (8:00 PM - 9:00 PM)</option>
+                </select>
+            </div>
+
+            <div id="pincodeSection">
+                <label>Pincode (Cuttack City)</label>
+                <input type="number" id="custPincode" placeholder="e.g. 753008" oninput="calculateDelivery()">
+                <div id="distanceInfo" style="font-size: 11px; font-weight: 700; color: var(--success); margin-bottom: 10px; display: none;"></div>
+            </div>
+
             <label>Delivery Address</label>
-            <textarea id="custAddress" rows="2" placeholder="Cuttack Area, House No, Landmark"></textarea>
+            <textarea id="custAddress" rows="2" placeholder="House No, Landmark, Area"></textarea>
 
             <div class="qty-container" id="qtyBox">
                 <span style="font-weight: 700; color: #333; font-size:13px;">Number of Plates</span>
@@ -438,12 +509,20 @@
                 </div>
             </div>
 
-            <label>Refer Code (Optional)</label>
-            <input type="text" id="custReferCode" placeholder="Enter refer phone number">
-
-            <div style="text-align: center; margin-bottom: 15px; background: #fff9ef; padding: 10px; border-radius: 12px; border: 1px dashed var(--gold);">
-                <span style="font-size: 11px; font-weight: 700; color: #888;">TOTAL PAYABLE</span>
-                <div id="totalAmountDisplay" style="font-size: 24px; font-weight: 800; color: var(--black);">₹0</div>
+            <div style="background: #f9f9f9; padding: 15px; border-radius: 15px; margin-bottom: 15px; border: 1px solid #eee;">
+                <div style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px;">
+                    <span>Item Total:</span>
+                    <span id="itemTotal">₹0</span>
+                </div>
+                <div id="deliveryRow" style="display: flex; justify-content: space-between; font-size: 13px; margin-bottom: 5px; color: #e67e22;">
+                    <span>Delivery Fee:</span>
+                    <span id="deliveryCharge">₹0</span>
+                </div>
+                <hr style="margin: 8px 0; border: none; border-top: 1px dashed #ccc;">
+                <div style="display: flex; justify-content: space-between; font-weight: 800; font-size: 18px; color: var(--black);">
+                    <span>Total:</span>
+                    <span id="totalAmountDisplay">₹0</span>
+                </div>
             </div>
 
             <button class="confirm-btn" id="confirmPlanOrder">Confirm on WhatsApp</button>
@@ -453,12 +532,10 @@
 </div>
 
 <script>
-    // FAQ Toggle
     document.querySelectorAll('.faq-item').forEach(item => {
         item.addEventListener('click', () => item.classList.toggle('active'));
     });
 
-    // Single Meal Tab Logic
     const singleBtns = document.querySelectorAll('.single-tab-btn');
     const singleGrids = document.querySelectorAll('.single-plan-grid');
     singleBtns.forEach(btn => {
@@ -471,7 +548,6 @@
         });
     });
 
-    // Monthly Subscription Tab Logic
     const monthlyBtns = document.querySelectorAll('.tab-btn');
     const monthlyGrids = document.querySelectorAll('.plan-grid');
     monthlyBtns.forEach(btn => {
@@ -484,57 +560,109 @@
         });
     });
 
-    // ORDER CALCULATION LOGIC
     let currentPlanPrice = 0;
     let currentPlanName = "";
     let quantity = 1;
+    let deliveryFee = 0;
+
+    const pincodeData = {
+        "753008": { dist: "0-2km", fee: 20 },
+        "753001": { dist: "3-4km", fee: 20 },
+        "753002": { dist: "4-5km", fee: 20 },
+        "753003": { dist: "6-8km", fee: 40 },
+        "753012": { dist: "7-9km", fee: 40 },
+        "753004": { dist: "5-6km", fee: 40 }
+    };
 
     function openOrderPopup(plan, price) {
         currentPlanName = plan;
         currentPlanPrice = price;
-        quantity = 1; 
+        quantity = 1;
+        deliveryFee = 0;
+        
         document.getElementById("selectedPlanDisplay").innerText = "SELECTED: " + plan;
         document.getElementById("qtyCounter").innerText = quantity;
+        document.getElementById("custPincode").value = "";
+        document.getElementById("distanceInfo").style.display = "none";
         document.getElementById("orderPopup").style.display = "flex";
 
-        const qtyBox = document.getElementById("qtyBox");
         if(plan.toLowerCase().includes("monthly")) {
-            qtyBox.style.display = "none";
+            document.getElementById("qtyBox").style.display = "none";
+            document.getElementById("pincodeSection").style.display = "none";
+            document.getElementById("deliveryRow").style.display = "none";
+            document.getElementById("timingSection").style.display = "none"; // Hide timing for monthly
         } else {
-            qtyBox.style.display = "flex";
+            document.getElementById("qtyBox").style.display = "flex";
+            document.getElementById("pincodeSection").style.display = "block";
+            document.getElementById("deliveryRow").style.display = "flex";
+            document.getElementById("timingSection").style.display = "block"; // Show timing for single/trial
         }
+        calculateTotal();
+    }
 
+    function calculateDelivery() {
+        const pin = document.getElementById("custPincode").value;
+        const distInfo = document.getElementById("distanceInfo");
+        
+        if(pincodeData[pin]) {
+            deliveryFee = pincodeData[pin].fee;
+            distInfo.innerText = `Distance: Approx ${pincodeData[pin].dist} | Delivery: ₹${deliveryFee}`;
+            distInfo.style.display = "block";
+            distInfo.style.color = "var(--success)";
+        } else if(pin.length === 6) {
+            deliveryFee = 40;
+            distInfo.innerText = "Distance: Above 5km | Delivery: ₹40";
+            distInfo.style.display = "block";
+            distInfo.style.color = "#e67e22";
+        } else {
+            deliveryFee = 0;
+            distInfo.style.display = "none";
+        }
         calculateTotal();
     }
 
     function updateQty(val) {
         quantity += val;
         if (quantity < 1) quantity = 1;
-        if (quantity > 20) quantity = 20; 
         document.getElementById("qtyCounter").innerText = quantity;
         calculateTotal();
     }
 
     function calculateTotal() {
-        const total = currentPlanPrice * quantity;
-        document.getElementById("totalAmountDisplay").innerText = "₹" + total;
+        const itemTotal = currentPlanPrice * quantity;
+        const finalTotal = itemTotal + deliveryFee;
+        document.getElementById("itemTotal").innerText = "₹" + itemTotal;
+        document.getElementById("deliveryCharge").innerText = "₹" + deliveryFee;
+        document.getElementById("totalAmountDisplay").innerText = "₹" + finalTotal;
     }
 
     document.getElementById("confirmPlanOrder").addEventListener('click', () => {
         const name = document.getElementById("custName").value;
         const phone = document.getElementById("custPhone").value;
         const addr = document.getElementById("custAddress").value;
-        const refer = document.getElementById("custReferCode").value || "No Refer Code";
-        const total = currentPlanPrice * quantity;
+        const pin = document.getElementById("custPincode").value;
+        const timing = document.getElementById("custTiming").value;
+        const finalTotal = (currentPlanPrice * quantity) + deliveryFee;
 
         if(!name || !phone || !addr) { alert("Please fill details"); return; }
+        if(!currentPlanName.toLowerCase().includes("monthly") && !pin) { alert("Please enter Pincode"); return; }
         
-        let msg = `*NEW ORDER*%0A*Plan:* ${currentPlanName}%0A`;
-        if(!currentPlanName.toLowerCase().includes("monthly")) {
-            msg += `*Qty:* ${quantity} Plate(s)%0A`;
-        }
-        msg += `*Total:* ₹${total}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Address:* ${addr}%0A*Refer:* ${refer}`;
-        window.open(`https://wa.me/918895611759?text=${msg}`, "_blank");
+        document.getElementById("processingScreen").style.display = "flex";
+        
+        setTimeout(() => {
+            document.getElementById("loaderGroup").style.display = "none";
+            document.getElementById("successGroup").style.display = "block";
+            
+            setTimeout(() => {
+                let msg = `*NEW ORDER*%0A*Plan:* ${currentPlanName}%0A`;
+                if(!currentPlanName.toLowerCase().includes("monthly")) {
+                    msg += `*Timing:* ${timing}%0A`; // Added timing to WhatsApp message
+                    msg += `*Qty:* ${quantity} Plate(s)%0A*Delivery Fee:* ₹${deliveryFee}%0A`;
+                }
+                msg += `*Total:* ₹${finalTotal}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Pincode:* ${pin}%0A*Address:* ${addr}`;
+                window.location.href = `https://wa.me/918895611759?text=${msg}`;
+            }, 2000);
+        }, 1500);
     });
 
     function shareReferral() {
