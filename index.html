@@ -196,16 +196,17 @@
         <button class="single-tab-btn" data-single="single-chicken">Chicken</button>
         <button class="single-tab-btn" data-single="single-fish">Fish</button>
         <button class="single-tab-btn" data-single="single-prawn">Prawn</button>
+        <button class="single-tab-btn" data-single="single-mushroom">Mushroom</button>
     </div>
 
     <div class="single-plan-grid" id="single-veg">
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">FRESH & LIGHT</span>
             <h3>Veg Thali</h3>
-            <div class="plan-price">₹80<span>/per meal</span></div>
+            <div class="plan-price">₹90<span>/per meal</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
-                <li><strong>Lunch:</strong> Rice, Dal, 2 Veg Sabji, Papad</li>
+                <li><strong>Lunch:</strong> Rice, Dal, 2 Veg Sabji, Salad, Papad</li>
                 <li><strong>Dinner:</strong> 4 Ruti / Rice, Veg Sabji</li>
                 <li>Fast Delivery in Cuttack</li>
             </ul>
@@ -217,10 +218,10 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">PROTEIN RICH</span>
             <h3>Egg Thali</h3>
-            <div class="plan-price">₹100<span>/per meal</span></div>
+            <div class="plan-price">₹140<span>/per meal</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
-                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Egg Curry (2 Eggs), Papad</li>
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Egg Curry, Sabji, Salad, Papad</li>
                 <li>Fresh & Home Style</li>
                 <li>Fast Delivery in Cuttack</li>
             </ul>
@@ -232,10 +233,10 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">VEG DELUXE</span>
             <h3>Paneer Thali</h3>
-            <div class="plan-price">₹120<span>/per meal</span></div>
+            <div class="plan-price">₹180<span>/per meal</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
-                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Paneer Butter Masala, Papad</li>
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Paneer, Sabji, Salad, Papad</li>
                 <li>Soft & Fresh Paneer</li>
                 <li>Fast Delivery in Cuttack</li>
             </ul>
@@ -247,10 +248,10 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">NON-VEG DELIGHT</span>
             <h3>Chicken Thali</h3>
-            <div class="plan-price">₹130<span>/per meal</span></div>
+            <div class="plan-price">₹160<span>/per meal</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
-                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Chicken Curry, Papad</li>
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Chicken Curry, Sabji, Salad, Papad</li>
                 <li>Fresh & Quality Meat</li>
                 <li>Fast Delivery in Cuttack</li>
             </ul>
@@ -262,10 +263,10 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">ODIA SPECIAL</span>
             <h3>Fish Thali</h3>
-            <div class="plan-price">₹140<span>/per meal</span></div>
+            <div class="plan-price">₹150<span>/per meal</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
-                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Fish Curry, Papad</li>
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Fish Curry, Sabji, Salad, Papad</li>
                 <li>Fresh Water Fish</li>
                 <li>Fast Delivery in Cuttack</li>
             </ul>
@@ -277,14 +278,29 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">PREMIUM SEAFOOD</span>
             <h3>Prawn Thali</h3>
-            <div class="plan-price">₹160<span>/per meal</span></div>
+            <div class="plan-price">₹200<span>/per meal</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features">
-                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Prawn Curry, Papad</li>
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Prawn Curry, Sabji, Salad, Papad</li>
                 <li>Big Sized Prawns</li>
                 <li>Fast Delivery in Cuttack</li>
             </ul>
             <br><button class="order-btn" onclick="openOrderPopup('Single Prawn Thali', 160)">Order Now</button>
+        </div>
+      
+    </div>
+    <div class="single-plan-grid" id="single-mushroom" style="display:none;">
+        <div class="plan-card">
+            <span style="color:var(--gold); font-weight:700; font-size:12px;">MUSHROOM SPECIAL</span>
+            <h3>Mushroom Thali</h3>
+            <div class="plan-price">₹160<span>/per meal</span></div>
+            <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
+            <ul class="plan-features">
+                <li><strong>Lunch/Dinner:</strong> Rice, Dal, Mushroom Masala, Sabji Salad, Papad</li>
+                <li>Fresh Mushroom Dish</li>
+                <li>Fast Delivery in Cuttack</li>
+            </ul>
+            <br><button class="order-btn" onclick="openOrderPopup('Single Mushroom Thali', 140)">Order Now</button>
         </div>
     </div>
 </div>
@@ -300,7 +316,7 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Premium Veg Thali</h3>
-            <div class="plan-price">₹3500<span>/month</span></div>
+            <div class="plan-price">₹4680<span>/month</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features"><li>Lunch & Dinner Included</li><li>Free Home Delivery</li><li>Hygienic Home Style</li><li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
             <br><button class="order-btn" onclick="openOrderPopup('Monthly Veg Plan', 3500)">Order Now</button>
@@ -310,7 +326,7 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Veg & Non-Veg Mix</h3>
-            <div class="plan-price">₹4500<span>/month</span></div>
+            <div class="plan-price">₹5320<span>/month</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features"><li>Non-Veg (Wed & Fri)</li><li>Free Home Delivery</li><li>Fresh Ingredients</li><li>Lunch & Dinner Included<li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
             <br><button class="order-btn" onclick="openOrderPopup('Monthly Mix Plan', 4500)">Order Now</button>
@@ -320,7 +336,7 @@
         <div class="plan-card">
             <span style="color:var(--gold); font-weight:700; font-size:12px;">26 Days Plan</span>
             <h3>Royal Non-Veg Thali</h3>
-            <div class="plan-price">₹5500<span>/month</span></div>
+            <div class="plan-price">₹6760<span>/month</span></div>
             <span class="pre-order-notice" style="margin-bottom:10px;">( Please order 1 day in advance )</span>
             <ul class="plan-features"><li>Daily Non-Veg Options</li><li>Free Express Delivery</li><li>Authentic Swaad</li><li>Lunch & Dinner Included<li>The monthly plan is for 26 days. If you want to include Sundays, you will have to purchase a separate single meal plan for Sundays.</ul>
             <br><button class="order-btn" onclick="openOrderPopup('Monthly Non-Veg Plan', 5500)">Order Now</button>
